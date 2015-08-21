@@ -1,0 +1,29 @@
+{
+  "name": "kitchen_sink",
+  "version": "0.1.0",
+  "description": "recipe listing site that allows blacklisting ingrediants",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickuhn/kitchen_sink.git"
+  },
+  "keywords": [
+    "recipe",
+    "angular",
+    "website"
+  ],
+  "author": "Nick Kuhn, Dewey Luu, Conlan McNamee, Shawn Fiske",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickuhn/kitchen_sink/issues"
+  },
+  "homepage": "https://github.com/nickuhn/kitchen_sink#readme",
+  "devDependencies": {
+    "angular": "^1.4.4",
+    "gulp": "^3.9.0",
+    "gulp-webpack": "^1.5.0"
+  }
+}
