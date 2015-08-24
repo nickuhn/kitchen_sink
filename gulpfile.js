@@ -4,7 +4,7 @@ var gulp   = require('gulp');
 var webpack = require('gulp-webpack');
 
 gulp.task('webpack:dev', function() {
-  return gulp.src('app/js/client.js')
+  return gulp.src('app/client.js')
     .pipe(webpack({
       watch: true,
       output: {

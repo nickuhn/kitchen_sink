@@ -2,7 +2,7 @@
 
 require('angular/angular');
 
-var recipeApp = angular.module('recipeApp', ['services', 'directives']);
+var recipeApp = angular.module('recipeApp', []);
 
-require('./directives/recipe_directive.js')(recipeApp);
-require('./controllers/recipe_controller.js')(recipeApp);
+require('./js/directives/recipe_directive.js')(recipeApp);
+require('./js/controllers/recipe_controller.js')(recipeApp);
