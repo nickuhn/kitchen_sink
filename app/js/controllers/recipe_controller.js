@@ -10,9 +10,11 @@ module.exports = function(app) {
       var ingredientString = '';
       for (var prop in ingredients) {
         var temp = ingredients[prop].replace(' ', '%20');
-        ingredientString = ingredientString + ',' + temp;
+        ingredientString = ingredientString + '&allowedIngredient[]=' + temp;
       }
+      ingredientString += '&requirePictures=true'
       var url = 'http://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString;
+      console.log(url);
       $http.get(url)
         .then(function(res) {
           console.log('success', res);
@@ -22,7 +24,6 @@ module.exports = function(app) {
           console.log('error', res);
           $scope.errors.push(res);
         })
-
     }
 	}]);
 };
