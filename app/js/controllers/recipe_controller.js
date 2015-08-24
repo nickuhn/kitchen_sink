@@ -13,7 +13,7 @@ module.exports = function(app) {
         var temp = ingredients[prop].replace(' ', '%20');
         ingredientString = ingredientString + ',' + temp;
       }
-      var url = 'http://food2fork.com/api/search?key=' + APIKEY + '&q=' + ingredientString;
+      var url = 'http://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString;
       $http.get(url)
         .then(function(res) {
           console.log('success', res);
@@ -23,6 +23,7 @@ module.exports = function(app) {
           console.log('error', res);
           $scope.errors.push(res);
         })
+
     }
 	}]);
 };

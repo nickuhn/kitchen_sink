@@ -18,7 +18,7 @@
             <p id="title">Kitchen Sink</p>
           </div>
           <nav>
-            <select>
+            <section>
               <nav>
                 <form name="ingredientForm" data-ng-submit="getRecipes(ingredient)">
                   <label for="ingredientBody">Ingredient(s):</label>
@@ -26,12 +26,12 @@
                   <input type="text" name="ingredientField1" data-ng-model="ingredient.item1">
                   <input type="text" name="ingredientField2" data-ng-model="ingredient.item2">
                   <input type="text" name="ingredientField3" data-ng-model="ingredient.item3">
-                  <button type="submit" data-ng-disabled="ingredientForm.$invalid">Search</button>
+                  <button type="submit">Search</button>
                 </form>
               </nav>
               <nav>
               </nav>
-            </select>
+            </section>
           </nav>
           <nav >
             <div style="margin-left:55px;display:inline-block">Outgredient:</div>
