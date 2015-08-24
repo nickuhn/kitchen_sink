@@ -1,0 +1,86 @@
+li {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+}
+
+.default {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFFFF;
+}
+
+#header {
+  margin-top:0px;
+  background-color: #80A035;
+}
+
+#title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700; 
+  font-size: 32px;
+  color: #FFFFFF;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+#nav {
+  background-color: #0E5003;
+}
+
+#footer {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  background-color: #FDE7E9;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#logo {
+  display: inline-block;
+  margin: 0px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+#logoTitle {
+  display: inline-block;
+  margin: 0px;
+  padding-left: 0px;
+  margin-top: 0px;
+}
+
+#main {
+  height: 100%
+}
+
+.buttonOn {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #FFFFFF;
+}
+
+.buttonOff {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #0E5003;
+}
+
+.query {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  display: inline-block;
+  margin: 5px;
+  padding: 2px;
+  background-color: #F4FBE5;
+}
