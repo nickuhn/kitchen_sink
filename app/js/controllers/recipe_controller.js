@@ -17,7 +17,7 @@ module.exports = function(app) {
       $http.get(url)
         .then(function(res) {
           console.log('success', res);
-          $scope.recipes = res.data.recipes;
+          $scope.recipes = res.data.matches;
         },
         function(res) {
           console.log('error', res);

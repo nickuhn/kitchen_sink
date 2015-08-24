@@ -1,0 +1,20 @@
+<section data-ng-controller="recipeController">
+
+	<ul>
+
+		<div data-ng-if="recipe.showTrend" data-ng-click="recipe.showRate = false, recipe.showName = false">Trending</div>
+		<div data-ng-if="recipe.showRate" data-ng-click="recipe.showTrend = false, recipe.showName = false">Rating</div>
+		<div data-ng-if="!recipe.showName" data-ng-click="recipe.showTrend = false, recipe.show">Name</div>
+	</ul>
+  <ol>
+		<li data-ng-repeat="recipe in recipes">
+		  <div>Recipe: {{recipe.title}}</div>
+		  <div>Rank: {{recipe.social_rank}}</div>
+		  <a href={{recipe.source_url}}>{{recipsource_url}}</a>
+		  <div style="display:inline-block">
+		    <img style="width: 100px" src={{recipe.ima_url}} />
+		  </div>
+		</li>
+	</ol>
+
+</section>
