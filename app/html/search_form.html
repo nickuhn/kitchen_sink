@@ -1,0 +1,14 @@
+<select>
+  <nav>
+    <form name="ingredientForm" data-ng-submit="getRecipe(ingredient)">
+      <label for="ingredientBody">Ingredient(s):</label>
+      <input type="text" required name="ingredientField0" data-ng-model="ingredient.item0">
+      <input type="text" name="ingredientField1" data-ng-model="ingredient.item1">
+      <input type="text" name="ingredientField2" data-ng-model="ingredient.item2">
+      <input type="text" name="ingredientField3" data-ng-model="ingredient.item3">
+      <button type="submit" data-ng-disabled="ingredientForm.$invalid">Search</button>
+    </form>
+  </nav>
+  <nav>
+  </nav>
+</select>
