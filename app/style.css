@@ -28,6 +28,7 @@ li {
 }
 
 #footer {
+  clear: both;
   font-family: 'Lato', sans-serif;
   font-size: 11px;
   background-color: #FDE7E9;
