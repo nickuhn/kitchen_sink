@@ -51,16 +51,15 @@
         <section class="default" id="main">
           <article class="default">
             <ol>
-              <li>Recipe one</li>
-              <li>Recipe two</li>
-              <li>Recipe three</li>
-              <li>Recipe four</li>
-              <li>Recipe five</li>
-              <li>Recipe six</li>
-              <li>Recipe seven</li>
-              <li>Recipe eight</li>
-              <li>Recipe nine</li>
-              <li>Recipe ten</li>
+              <li data-ng-repeat="recipe in recipes">
+                <div>Recipe: {{recipe.recipeName}}</div>
+                <div>Rating: {{recipe.rating}}</div>
+                <div style="display:inline-block">
+
+                <img style="width: 100px" src={{recipe.smallImageUrls[0]}} />
+
+                </div>
+              </li>
             </ol>
           </article>
         </section>
