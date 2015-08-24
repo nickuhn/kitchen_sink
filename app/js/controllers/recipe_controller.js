@@ -6,7 +6,8 @@ module.exports = function(app) {
 		$scope.errors = [];
 
     $scope.getRecipes = function(ingredients) {
-      var APIKEY = 'b42730b75912919136b1fcc58fec5b5c'
+      var ingredientString = '';
+      var APIKEY = 'd148c8da9c3ac06a293e1300968ee4b3'
       var ingredientString = '';
       for (var prop in ingredients) {
         var temp = ingredients[prop].replace(' ', '%20');
