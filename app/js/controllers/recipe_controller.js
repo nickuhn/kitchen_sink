@@ -23,7 +23,6 @@ module.exports = function(app) {
           console.log('error', res);
           $scope.errors.push(res);
         })
-
     }
 	}]);
 };
