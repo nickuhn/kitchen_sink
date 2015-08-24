@@ -9,20 +9,29 @@
     </head>
       <style>
       </style>
-    <body class="default">
-      <main>
+    <body class="default" data-ng-app="recipeApp">
+      <main data-ng-controller="recipeController" data-ng-init="getRecipe()">
         <header id="header">
           <div id="logo">
           </div>
           <div id="logoTitle">
             <p id="title">Kitchen Sink</p>
           </div>
-          <nav >
-            <div style="margin-left:20px;display:inline-block">Ingredient:</div>
-            <div class="query">query one</div>
-            <div class="query">query two</div>
-            <div class="query">query three</div>
-            <div class="query">query four</div>
+          <nav>
+            <select>
+              <nav>
+                <form name="ingredientForm" data-ng-submit="getRecipe(ingredient)">
+                  <label for="ingredientBody">Ingredient(s):</label>
+                  <input type="text" required name="ingredientField0" data-ng-model="ingredient.item0">
+                  <input type="text" name="ingredientField1" data-ng-model="ingredient.item1">
+                  <input type="text" name="ingredientField2" data-ng-model="ingredient.item2">
+                  <input type="text" name="ingredientField3" data-ng-model="ingredient.item3">
+                  <button type="submit" data-ng-disabled="ingredientForm.$invalid">Search</button>
+                </form>
+              </nav>
+              <nav>
+              </nav>
+            </select>
           </nav>
           <nav >
             <div style="margin-left:55px;display:inline-block">Outgredient:</div>
