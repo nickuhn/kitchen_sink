@@ -111,12 +111,20 @@
         <section class="default" id="main">
           <article class="default">
             <ol>
-              <li data-ng-repeat="recipe in recipes | orderBy:sortType():sortReverse()">
-                <div>Recipe: {{recipe.recipeName}}</div>
-                <div>Rating: {{recipe.rating}}</div>
-                <div style="display:inline-block">
-                <img style="width: 100px" src={{recipe.smallImageUrls[0]}} />
-                </div>
+              <li data-ng-controller="ingredientController" data-ng-repeat="recipe in recipes | orderBy:sortType">
+                <article data-ng-click="getDirections(recipe.id)">
+                  <div>Recipe: {{recipe.recipeName}}</div>
+                  <div>Rating: {{recipe.rating}}</div>
+                  <div style="display:inline-block">
+                    <img style="width: 100px" src={{recipe.smallImageUrls[0]}} />
+                  </div>
+                  <section data-ng-show="isOpen">
+                    <div data-recipe-details-directive
+                    data-directions="ingredients"
+                    ></div>
+                    <a href='{{sourceUrl}}'>{{sourceUrl}}</a>
+                  </section>
+                </article>
               </li>
             </ol>
           </article>
