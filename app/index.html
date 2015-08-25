@@ -101,14 +101,16 @@
         <section class="default" id="main">
           <article class="default">
             <div id="pic">
-            <ol>
-              <li data-ng-controller="ingredientController" data-ng-repeat="recipe in recipes | orderBy:sortType():sortReverse()">
-                <article data-ng-click="getDirections(recipe.id)" ng-class-odd="'odd'" ng-class-even="'even'">
-                  <div>Recipe: {{recipe.recipeName}}</div>
-                  <div data-star-rating data-rating-value="recipe.rating"></div>
+            <ul class="recipesStyle">
+              <li data-ng-controller="ingredientController" data-ng-repeat="recipe in recipes | orderBy:sortType():sortReverse()" >
+                <article data-ng-click="getDirections(recipe.id)" ng-class-odd="'odd'" ng-class-even="'even'" class="recipeStyle">
                   <div style="display:inline-block">
                     <img style="width: 100px" src={{recipe.smallImageUrls[0]}} />
                   </div>
+                  <article style="display:inline-block">
+                    <div class="posRecipeName">{{recipe.recipeName}}</div>
+                    <div data-star-rating data-rating-value="recipe.rating" class="posRecipeStars"></div>
+                  </article>
                   <section data-ng-show="isOpen">
                     <div data-recipe-details-directive
                     data-directions="ingredients"
@@ -117,7 +119,7 @@
                   </section>
                 </article>
               </li>
-            </ol>
+            </ul>
           </div id="pic">
           </article>
         </section>
