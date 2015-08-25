@@ -11,7 +11,7 @@
       <main data-ng-controller="recipeController" data-ng-init="getRecipes()">
         <header id="header">
           <img id="logo" src="findingstill" alt="Kitchen Sink Logo" />
-          <h1 id="title">Kitchen Sink</h1>
+          <h1 id="title"><strong>K</strong>itchen <strong>S</strong>ink</h1>
             <form id="searchForm" name="ingredientForm" data-ng-submit="getRecipes(ingredient,outgredient)">
               <section>
                 <label id="ingredients" for="ingredientBody"><strong>IN</strong>gredient(s):</label>
@@ -39,11 +39,6 @@
                        data-ng-minlength=3
                        data-ng-model="ingredient.item4"
                        data-ng-if="ingredient.item3.length>2" />
-                <input type="text"
-                       name="ingredientField5"
-                       data-ng-minlength=3
-                       data-ng-model="ingredient.item5"
-                       data-ng-if="ingredient.item4.length>2" />
               </section>
               <section>
                 <label id="outgredients" for ="outgredientBody"><strong>OUT</strong>gredient(s):</label>
@@ -71,11 +66,6 @@
                        data-ng-minlength=3
                        data-ng-model="outgredient.item4"
                        data-ng-if="outgredient.item3.length>2" />
-                       <input type="text"
-                       name="outgredientField5"
-                       data-ng-minlength=3
-                       data-ng-model="outgredient.item5"
-                       data-ng-if="outgredient.item4.length>2" />
               </section>
               <button id="searchFormSubmit" type="submit" data-ng-disabled="!ingredient.item0 && !outgredient.item0">Search</button>
             </form>
