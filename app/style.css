@@ -135,3 +135,10 @@ li {
   padding: 2px;
   background-color: #F4FBE5;
 }
+
+.odd {
+  background-color: #F4FBE5;
+}
+.even {
+  background-color: #FFFFFF;
+}
