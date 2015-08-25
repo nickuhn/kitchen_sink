@@ -57,7 +57,11 @@ module.exports = function(app) {
       $http.get(url)
         .then(function(res) {
           console.log('success', res);
-          $scope.recipes = res.data.matches;
+          if (res.data.matches.length === 0) {
+            $scope.recipes = [{recipeName: 'Sorry No Matches Found'}];
+          } else {
+            $scope.recipes = res.data.matches;
+          }
           $scope.logo = res.data.attribution.logo;
           $scope.text = res.data.attribution.text;
           $scope.url  = res.data.attribution.url;
