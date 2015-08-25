@@ -4,6 +4,10 @@ module.exports = function(app) {
 	app.controller('recipeController', ['$scope', '$http', function($scope, $http) {
 		$scope.recipes = [];
 		$scope.errors = [];
+    $scope.logo = '';
+    $scope.text = '';
+    $scope.url = '';
+
 
     $scope.getRecipes = function(ingredients) {
       var APIKEY = 'b42730b75912919136b1fcc58fec5b5c'
@@ -19,6 +23,10 @@ module.exports = function(app) {
         .then(function(res) {
           console.log('success', res);
           $scope.recipes = res.data.matches;
+          $scope.logo = res.data.attribution.logo;
+          $scope.text = res.data.attribution.text;
+          $scope.url  = res.data.attribution.url;
+  
         },
         function(res) {
           console.log('error', res);
