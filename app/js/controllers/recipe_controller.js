@@ -18,10 +18,10 @@ module.exports = function(app) {
     $scope.sortType = function() {
       if($scope.active.nameIsActive) {
         return "recipeName";
-      } 
+      }
       if($scope.active.ratingIsActive) {
         return "rating";
-      } 
+      }
       if($scope.active.cookingTimeIsActive) {
         return "totalTimeInSeconds";
       }
@@ -61,12 +61,11 @@ module.exports = function(app) {
           $scope.logo = res.data.attribution.logo;
           $scope.text = res.data.attribution.text;
           $scope.url  = res.data.attribution.url;
-  
         },
         function(res) {
           console.log('error', res);
           $scope.errors.push(res);
         })
-    }
+    };
 	}]);
 };
