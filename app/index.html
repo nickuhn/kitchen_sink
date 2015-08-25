@@ -66,6 +66,16 @@
                        data-ng-minlength=3
                        data-ng-model="outgredient.item3"
                        data-ng-if="outgredient.item2.length>2" />
+                <input type="text"
+                       name="outgredientField4"
+                       data-ng-minlength=3
+                       data-ng-model="outgredient.item4"
+                       data-ng-if="outgredient.item3.length>2" />
+                       <input type="text"
+                       name="outgredientField5"
+                       data-ng-minlength=3
+                       data-ng-model="outgredient.item5"
+                       data-ng-if="outgredient.item4.length>2" />
               </section>
               <button id="searchFormSubmit" type="submit" data-ng-disabled="!ingredient.item0 && !outgredient.item0">Search</button>
             </form>
