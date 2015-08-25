@@ -10,6 +10,24 @@ li {
   background-color: #FFFFFF;
 }
 
+.recipeStyle {
+  margin: 0px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.recipesStyle {
+  list-style-type: none;
+}
+
+.posRecipeName {
+  margin-bottom: 36px;
+}
+
+.posRecipeStars {
+  padding-top: 0px;
+}
+
 #header {
   margin-top:0px;
   background-color: #80A035;
@@ -145,6 +163,8 @@ li {
 
 .rating span {
   color: gray;
+  margin: 0px;
+  padding: 0px;
 }
 .rating span.filled {
   color: gold;
