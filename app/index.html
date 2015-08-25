@@ -110,6 +110,7 @@
         </section>
         <section class="default" id="main">
           <article class="default">
+            <div id="pic">
             <ol>
               <li data-ng-repeat="recipe in recipes | orderBy:sortType():sortReverse()">
                 <div>Recipe: {{recipe.recipeName}}</div>
@@ -119,6 +120,7 @@
                 </div>
               </li>
             </ol>
+          </div id="pic">
           </article>
         </section>
         <footer id="footer" >
