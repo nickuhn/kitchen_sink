@@ -22,21 +22,33 @@ li {
   color: #FFFFFF;
   margin: 5px;
   padding: 5px;
-  width: 175px;
+  width: 200px;
   display: inline-block;
+}
+
+#title strong {
+  font-size: 60px;
 }
 
 #searchForm {
   font-family: 'Roboto Condensed', sans-serif;
   color: #FFFFFF;
   display: inline-block;
-  margin: 5px;
+  margin: 10px 125px 0px;
   padding: 5px;
 }
 
 #searchFormSubmit {
-  float: right;
+  float: left;
   margin-top: 5px;
+  margin-left: 100px;
+  width: 125px;
+  border-radius: 4px;
+  background-color: #F4FBE5;
+}
+
+#searchFormSubmit:hover {
+  background-color: #FDE7E9;
 }
 
 #searchForm label strong {
@@ -49,16 +61,17 @@ li {
 }
 #searchForm input {
   background-color: #E0F2DD;
+  margin-bottom: 5px;
 }
 
 #ingredients {
-  padding-right: 16px;
+  padding-right: 17px;
 }
 
 #nav {
   background-color: #0E5003;
-  padding-top: 2px;
-  padding-bottom: 0px;
+  padding-top: 7px;
+  padding-left: 10px;
 }
 
 #footer {
@@ -121,24 +134,4 @@ li {
   margin: 5px;
   padding: 2px;
   background-color: #F4FBE5;
-}
-
-#pic {
-   width: 100%;
-  height: 100%;
-  display: block;
-  position: relative;
-}
-
-#pic::after {
-  content: "";
-  background-image: url("https://images.unsplash.com/reserve/EnF7DhHROS8OMEp2pCkx_Dufer%20food%20overhead%20hig%20res.jpg?q=80&fm=jpg&s=79cda1064d9829ad3cadbf437e6c55e0");
-  background-size: 100% 100%;
-  opacity: 0.15;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  /*z-index: 0;*/
 }
