@@ -136,9 +136,16 @@ li {
   background-color: #F4FBE5;
 }
 
-.odd {
+.even {
   background-color: #F4FBE5;
 }
-.even {
+.odd {
   background-color: #FFFFFF;
+}
+
+.rating span {
+  color: gray;
+}
+.rating span.filled {
+  color: gold;
 }
