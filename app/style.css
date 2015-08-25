@@ -70,8 +70,8 @@ li {
 
 #nav {
   background-color: #0E5003;
-  padding-top: 2px;
-  padding-bottom: 0px;
+  padding-top: 7px;
+  padding-left: 10px;
 }
 
 #footer {
@@ -135,23 +135,3 @@ li {
   padding: 2px;
   background-color: #F4FBE5;
 }
-
-/*#pic {
-   width: 100%;
-  height: 100%;
-  display: block;
-  position: relative;
-}
-
-#pic::after {
-  background-image: url("https://images.unsplash.com/reserve/EnF7DhHROS8OMEp2pCkx_Dufer%20food%20overhead%20hig%20res.jpg?q=80&fm=jpg&s=79cda1064d9829ad3cadbf437e6c55e0");
-  background-size: 100% 100%;
-  opacity: 0.15;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: 0;
-}*/
-
