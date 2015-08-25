@@ -35,10 +35,23 @@ li {
 
 #searchFormSubmit {
   float: right;
+  margin-top: 5px;
+}
+
+#searchForm label strong {
+  font-size: 20px;
+  color: #FFF;
+}
+#searchForm label {
+  font-size: 13px;
+  color: #E0F2DD;
+}
+#searchForm input {
+  background-color: #E0F2DD;
 }
 
 #ingredients {
-  padding-right: 10px;
+  padding-right: 16px;
 }
 
 #nav {
