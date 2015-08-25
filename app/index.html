@@ -20,12 +20,17 @@
           <nav>
             <section>
               <nav>
-                <form name="ingredientForm" data-ng-submit="getRecipes(ingredient)">
+                <form name="ingredientForm" data-ng-submit="getRecipes(ingredient,outgredient)">
                   <label for="ingredientBody">Ingredient(s):</label>
                   <input type="text" required name="ingredientField0" data-ng-model="ingredient.item0">
                   <input type="text" name="ingredientField1" data-ng-model="ingredient.item1">
                   <input type="text" name="ingredientField2" data-ng-model="ingredient.item2">
                   <input type="text" name="ingredientField3" data-ng-model="ingredient.item3">
+                  <label for ="outgredientBody">Outgredient(s):</label>
+                  <input type="text" name="outgredientField0" data-ng-model="outgredient.item0">
+                  <input type="text" name="outgredientField1" data-ng-model="outgredient.item1">
+                  <input type="text" name="outgredientField2" data-ng-model="outgredient.item2">
+                  <input type="text" name="outgredientField3" data-ng-model="outgredient.item3">
                   <button type="submit">Search</button>
                 </form>
               </nav>
@@ -33,17 +38,17 @@
               </nav>
             </section>
           </nav>
-          <nav >
+         <!--  <nav >
             <div style="margin-left:55px;display:inline-block">Outgredient:</div>
             <div class="query">filter one</div>
             <div class="query">filter two</div>
             <div class="query">filter three</div>
             <div class="query">filter four</div>
-          </nav>
+          </nav> -->
         </header>
         <section class="default" id="nav">
           <nav>
-            <div class="buttonOn">Name</div>
+            <div class="buttonOn" type="subtmit">Name</div>
             <div class="buttonOff">Rating</div>
             <div class="buttonOff">Cooking Time</div>
           </nav>
@@ -51,7 +56,7 @@
         <section class="default" id="main">
           <article class="default">
             <ol>
-              <li data-ng-repeat="recipe in recipes">
+              <li data-ng-repeat="recipe in recipes | orderBy:sortType">
                 <div>Recipe: {{recipe.recipeName}}</div>
                 <div>Rating: {{recipe.rating}}</div>
                 <div style="display:inline-block">
