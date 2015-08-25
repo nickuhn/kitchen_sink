@@ -19,8 +19,26 @@ li {
   font-weight: 700;
   font-size: 32px;
   color: #FFFFFF;
-  margin-top: 0px;
-  padding-top: 0px;
+  margin: 5px;
+  padding: 5px;
+  width: 175px;
+  display: inline-block;
+}
+
+#searchForm {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #FFFFFF;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+}
+
+#searchFormSubmit {
+  float: right;
+}
+
+#ingredients {
+  padding-right: 10px;
 }
 
 #nav {
