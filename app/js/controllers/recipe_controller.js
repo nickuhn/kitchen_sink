@@ -4,7 +4,7 @@ module.exports = function(app) {
 	app.controller('recipeController', ['$scope', '$http', function($scope, $http) {
 		$scope.recipes = [];
 		$scope.errors = [];
-    
+    //placeholder
 
     $scope.logo = '';
     $scope.text = '';
