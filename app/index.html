@@ -82,15 +82,36 @@
         </header>
         <section class="default" id="nav">
           <nav>
-            <div class="buttonOn">Name</div>
-            <div class="buttonOff">Rating</div>
-            <div class="buttonOff">Cooking Time</div>
+            <ng-switch on="active.nameIsActive">
+              <button ng-switch-when="true" class="buttonOn">
+                <a>Name {{nameisActive}}</a>
+              </button>
+              <button ng-switch-default class="buttonOff">
+                <a ng-click="active.nameIsActive=true; active.ratingIsActive=false; active.cookingTimeIsActive=false">Name {{nameIsActive}}</a>
+              </button>
+            </ng-switch>
+            <ng-switch on="active.ratingIsActive">
+              <button ng-switch-when="true" class="buttonOn">
+                <a>Rating {{ratingIsActive}}</a>
+              </button>
+              <button ng-switch-default class="buttonOff">
+                <a ng-click="active.ratingIsActive=true; active.nameIsActive=false; active.cookingTimeIsActive=false">Rating {{ratingIsActive}}</a>
+              </button>
+            </ng-switch>
+            <ng-switch on="active.cookingTimeIsActive">
+              <button ng-switch-when="true" class="buttonOn">
+                <a>Cooking Time {{cookingTimeIsActive}}</a>
+              </button>
+              <button ng-switch-default class="buttonOff">
+                <a ng-click="active.cookingTimeIsActive=true; active.nameIsActive=false; active.ratingIsActive=false">Cooking Time {{cookingTimeIsActive}}</a>
+              </button>
+            </ng-switch>
           </nav>
         </section>
         <section class="default" id="main">
           <article class="default">
             <ol>
-              <li data-ng-repeat="recipe in recipes | orderBy:sortType">
+              <li data-ng-repeat="recipe in recipes | orderBy:sortType():sortReverse()">
                 <div>Recipe: {{recipe.recipeName}}</div>
                 <div>Rating: {{recipe.rating}}</div>
                 <div style="display:inline-block">
