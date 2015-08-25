@@ -22,9 +22,12 @@
     "url": "https://github.com/nickuhn/kitchen_sink/issues"
   },
   "homepage": "https://github.com/nickuhn/kitchen_sink#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
   "devDependencies": {
     "angular": "^1.4.4",
-    "express": "^4.13.3",
+
     "gulp": "^3.9.0",
     "gulp-webpack": "^1.5.0"
   }
