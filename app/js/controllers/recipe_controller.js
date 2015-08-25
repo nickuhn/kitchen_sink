@@ -39,14 +39,14 @@ module.exports = function(app) {
       var outgredientString = '';
       for (var prop in ingredients) {
         if(ingredients[prop] !== '') {
-          var temp = ingredients[prop].replace(' ', '%20');
+          var temp = ingredients[prop].toLowerCase().replace(' ', '%20');
           ingredientString = ingredientString + '&allowedIngredient[]=' + temp;
         }
       }
 
       for (var prop in outgredients) {
         if(outgredients[prop] !== '') {
-          var temp = outgredients[prop].replace(' ', '%20');
+          var temp = outgredients[prop].toLowerCase().replace(' ', '%20');
         outgredientString = outgredientString + '&excludedIngredient[]=' + temp;
         }
       }

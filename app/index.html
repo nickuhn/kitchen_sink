@@ -103,7 +103,7 @@
             <div id="pic">
             <ol>
               <li data-ng-controller="ingredientController" data-ng-repeat="recipe in recipes | orderBy:sortType">
-                <article data-ng-click="getDirections(recipe.id)">
+                <article data-ng-click="getDirections(recipe.id)" ng-class-odd="'odd'" ng-class-even="'even'">
                   <div>Recipe: {{recipe.recipeName}}</div>
                   <div>Rating: {{recipe.rating}}</div>
                   <div style="display:inline-block">
