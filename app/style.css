@@ -22,21 +22,33 @@ li {
   color: #FFFFFF;
   margin: 5px;
   padding: 5px;
-  width: 175px;
+  width: 200px;
   display: inline-block;
+}
+
+#title strong {
+  font-size: 60px;
 }
 
 #searchForm {
   font-family: 'Roboto Condensed', sans-serif;
   color: #FFFFFF;
   display: inline-block;
-  margin: 5px;
+  margin: 10px 125px 0px;
   padding: 5px;
 }
 
 #searchFormSubmit {
-  float: right;
+  float: left;
   margin-top: 5px;
+  margin-left: 100px;
+  width: 125px;
+  border-radius: 4px;
+  background-color: #F4FBE5;
+}
+
+#searchFormSubmit:hover {
+  background-color: #FDE7E9;
 }
 
 #searchForm label strong {
@@ -49,10 +61,11 @@ li {
 }
 #searchForm input {
   background-color: #E0F2DD;
+  margin-bottom: 5px;
 }
 
 #ingredients {
-  padding-right: 16px;
+  padding-right: 17px;
 }
 
 #nav {
