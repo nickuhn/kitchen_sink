@@ -6,6 +6,12 @@ module.exports = function(app) {
 		$scope.errors = [];
     $scope.sortType = 'recipeName';
 
+    $scope.logo = '';
+    $scope.text = '';
+    $scope.url = '';
+
+
+
     $scope.getRecipes = function(ingredients, outgredients) {
       var ingredientString = '';
       var outgredientString = '';
@@ -14,15 +20,23 @@ module.exports = function(app) {
         var temp = ingredients[prop].replace(' ', '%20');
         ingredientString = ingredientString + '&allowedIngredient[]=' + temp;
       }
+
       for (var prop in outgredients) {
         var temp = outgredients[prop].replace(' ', '%20');
         outgredientString = outgredientString + '&excludedIngredient[]=' + temp;
       }
+      outgredientString += '&requirePictures=true'
       var url = 'http://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString + outgredientString;
+      console.log(url);
+
       $http.get(url)
         .then(function(res) {
           console.log('success', res);
           $scope.recipes = res.data.matches;
+          $scope.logo = res.data.attribution.logo;
+          $scope.text = res.data.attribution.text;
+          $scope.url  = res.data.attribution.url;
+  
         },
         function(res) {
           console.log('error', res);
