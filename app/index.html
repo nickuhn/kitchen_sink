@@ -110,6 +110,7 @@
         </section>
         <section class="default" id="main">
           <article class="default">
+            <div id="pic">
             <ol>
               <li data-ng-controller="ingredientController" data-ng-repeat="recipe in recipes | orderBy:sortType">
                 <article data-ng-click="getDirections(recipe.id)">
@@ -127,6 +128,7 @@
                 </article>
               </li>
             </ol>
+          </div id="pic">
           </article>
         </section>
         <footer id="footer" >
