@@ -25,6 +25,8 @@ li {
 
 #nav {
   background-color: #0E5003;
+  padding-top: 2px;
+  padding-bottom: 0px;
 }
 
 #footer {
@@ -59,10 +61,12 @@ li {
   font-size: 16px;
   display: inline-block;
   margin: 0px;
-  padding: 0px;
+  padding: 1px;
   padding-left: 10px;
   padding-right: 10px;
   background-color: #FFFFFF;
+  border: 0px;
+  border-radius: 2px 2px 0px 0px;
 }
 
 .buttonOff {
@@ -75,6 +79,7 @@ li {
   padding-left: 10px;
   padding-right: 10px;
   background-color: #0E5003;
+  border: 0px;
 }
 
 .query {

@@ -4,13 +4,35 @@ module.exports = function(app) {
 	app.controller('recipeController', ['$scope', '$http', function($scope, $http) {
 		$scope.recipes = [];
 		$scope.errors = [];
-    $scope.sortType = 'recipeName';
+    
 
     $scope.logo = '';
     $scope.text = '';
     $scope.url = '';
 
-
+    $scope.active = {
+      nameIsActive: true,
+      ratingIsActive: false,
+      cookingTimeIsActive: false
+    };
+    $scope.sortType = function() {
+      if($scope.active.nameIsActive) {
+        return "recipeName";
+      } 
+      if($scope.active.ratingIsActive) {
+        return "rating";
+      } 
+      if($scope.active.cookingTimeIsActive) {
+        return "totalTimeInSeconds";
+      }
+    };
+    $scope.sortReverse = function() {
+      if($scope.active.ratingIsActive) {
+        return true;
+      } else {
+        return false;
+      }
+    }
 
     $scope.getRecipes = function(ingredients, outgredients) {
       var ingredientString = '';
