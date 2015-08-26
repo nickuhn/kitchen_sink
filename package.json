@@ -27,7 +27,6 @@
   },
   "devDependencies": {
     "angular": "^1.4.4",
-
     "gulp": "^3.9.0",
     "gulp-webpack": "^1.5.0"
   }
