@@ -28703,6 +28703,9 @@
 	    $scope.logo = '';
 	    $scope.text = '';
 	    $scope.url = '';
+	    $scope.roundPages = function(num) {
+	      return (Math.floor(num/10) + 1);
+	    }
 
 	    $scope.Ingred;
 	    $scope.Outgred;
@@ -28735,13 +28738,13 @@
 	    }
 	    $scope.previousPage = function() {
 
-	      $scope.currentPage.page = $scope.currentPage.page - 10;
-	      if ($scope.currentPage.page = -10) {
+	      $scope.currentPage.page = $scope.currentPage.page - 1;
+	      if ($scope.currentPage.page = -1) {
 	        $scope.currentPage.page = 0;
 	      }
 	    }
 	    $scope.nextPage = function() {
-	      $scope.currentPage.page = $scope.currentPage.page + 10;
+	      $scope.currentPage.page = $scope.currentPage.page + 1;
 	    }
 
 	    $scope.getRecipes = function(ingredients, outgredients) {
@@ -28757,7 +28760,7 @@
 	        if (!$scope.currentPage.page) {
 	          return '';
 	        }
-	        var pageStr = "&maxResult=10&start=" + $scope.currentPage.page;
+	        var pageStr = "&maxResult=10&start=" + ($scope.currentPage.page * 10);
 	        return pageStr;
 	      }
 
@@ -28779,6 +28782,8 @@
 	          $scope.logo = res.data.attribution.logo;
 	          $scope.text = res.data.attribution.text;
 	          $scope.url  = res.data.attribution.url;
+	          $scope.results = res.data.totalMatchCount;
+
 	        },
 	        function(res) {
 	          console.log('error', res);
