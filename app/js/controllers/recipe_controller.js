@@ -41,13 +41,13 @@ module.exports = function(app) {
     }
     $scope.previousPage = function() {
 
-      $scope.currentPage.page = $scope.currentPage.page - 10;
-      if ($scope.currentPage.page = -10) {
+      $scope.currentPage.page = $scope.currentPage.page - 1;
+      if ($scope.currentPage.page = -1) {
         $scope.currentPage.page = 0;
       }
     }
     $scope.nextPage = function() {
-      $scope.currentPage.page = $scope.currentPage.page + 10;
+      $scope.currentPage.page = $scope.currentPage.page + 1;
     }
 
     $scope.getRecipes = function(ingredients, outgredients) {
@@ -63,7 +63,7 @@ module.exports = function(app) {
         if (!$scope.currentPage.page) {
           return '';
         }
-        var pageStr = "&maxResult=10&start=" + $scope.currentPage.page;
+        var pageStr = "&maxResult=10&start=" + ($scope.currentPage.page * 10);
         return pageStr;
       }
 
