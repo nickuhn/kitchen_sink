@@ -1,0 +1,171 @@
+li {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+}
+
+
+.default {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFFFF;
+}
+
+.recipeStyle {
+  margin: 0px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.recipesStyle {
+  list-style-type: none;
+}
+
+.posRecipeName {
+  margin-bottom: 36px;
+}
+
+.posRecipeStars {
+  padding-top: 0px;
+}
+
+#header {
+  margin-top:0px;
+  background-color: #80A035;
+}
+
+#title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #FFFFFF;
+  margin: 5px;
+  padding: 5px;
+  width: 200px;
+  display: inline-block;
+}
+
+#title strong {
+  font-size: 60px;
+}
+
+#searchForm {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #FFFFFF;
+  display: inline-block;
+  margin: 10px 125px 0px;
+  padding: 5px;
+}
+
+#searchFormSubmit {
+  float: left;
+  margin-top: 5px;
+  margin-left: 100px;
+  width: 125px;
+  border-radius: 4px;
+  background-color: #F4FBE5;
+}
+
+#searchFormSubmit:hover {
+  background-color: #FDE7E9;
+}
+
+#searchForm label strong {
+  font-size: 20px;
+  color: #FFF;
+}
+#searchForm label {
+  font-size: 13px;
+  color: #E0F2DD;
+}
+#searchForm input {
+  background-color: #E0F2DD;
+  margin-bottom: 5px;
+}
+
+#ingredients {
+  padding-right: 17px;
+}
+
+#nav {
+  background-color: #0E5003;
+  padding-top: 7px;
+  padding-left: 10px;
+}
+
+#footer {
+  clear: both;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  background-color: #FDE7E9;
+  bottom: 0;
+  width: 100%;
+}
+
+#logo {
+  display: inline-block;
+  margin: 0px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+#logoTitle {
+  display: inline-block;
+  margin: 0px;
+  padding-left: 0px;
+  margin-top: 0px;
+}
+
+#main {
+  height: 100%
+}
+
+.buttonOn {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  display: inline-block;
+  margin: 0px;
+  padding: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #FFFFFF;
+  border: 0px;
+  border-radius: 2px 2px 0px 0px;
+}
+
+.buttonOff {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: white;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #0E5003;
+  border: 0px;
+}
+
+.query {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  display: inline-block;
+  margin: 5px;
+  padding: 2px;
+  background-color: #F4FBE5;
+}
+
+.even {
+  background-color: #F4FBE5;
+}
+.odd {
+  background-color: #FFFFFF;
+}
+
+.rating span {
+  color: gray;
+  margin: 0px;
+  padding: 0px;
+}
+.rating span.filled {
+  color: gold;
+}
