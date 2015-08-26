@@ -51,12 +51,12 @@
 	var recipeApp = angular.module('recipeApp', []);
 
 	__webpack_require__(2)(recipeApp);
+	__webpack_require__(3)(recipeApp);
+	__webpack_require__(4)(recipeApp);
 	__webpack_require__(5)(recipeApp);
 	__webpack_require__(6)(recipeApp);
 	__webpack_require__(7)(recipeApp);
 	__webpack_require__(8)(recipeApp);
-	__webpack_require__(3)(recipeApp);
-	__webpack_require__(4)(recipeApp);
 
 
 /***/ },
@@ -28695,14 +28695,96 @@
 	'use strict';
 
 	module.exports = function(app) {
-		app.controller('recipeController', ['$scope', '$http', function($scope, $http) {
-			$scope.recipes = [];
-			$scope.errors = [];
-	    //placeholder
+	  app.directive('starRating', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/rating_template.html',
+	      scope: {
+	        ratingValue: '=',
+	      },
+	      link: function($scope) {
+	        $scope.stars = [];
+	        if($scope.ratingValue) {
+	          for (var i = 0; i < 5; i++) {
+	            $scope.stars.push({filled: i < $scope.ratingValue});
+	          }
+	        }
+	      }
+	    }
+	  });
+	}
+
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('searchForm', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/search_form.html',
+	    }
+	  });
+	};
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('resultSort', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/result_sort.html',
+	    }
+	  });
+	};
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('recipeList', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/recipe_list.html',
+	    }
+	  });
+	};
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.controller('recipeController', ['$scope', '$http', function($scope, $http) {
+	    $scope.recipes = [];
+	    $scope.errors = [];
+	    $scope.newSearchResult = '';
 
 	    $scope.logo = '';
 	    $scope.text = '';
 	    $scope.url = '';
+
+	    $scope.Ingred;
+	    $scope.Outgred;
 
 	    $scope.active = {
 	      nameIsActive: true,
@@ -28727,6 +28809,19 @@
 	        return false;
 	      }
 	    }
+	    $scope.currentPage = {
+	      page: 0
+	    }
+	    $scope.previousPage = function() {
+
+	      $scope.currentPage.page = $scope.currentPage.page - 10;
+	      if ($scope.currentPage.page = -10) {
+	        $scope.currentPage.page = 0;
+	      }
+	    }
+	    $scope.nextPage = function() {
+	      $scope.currentPage.page = $scope.currentPage.page + 10;
+	    }
 
 	    $scope.getRecipes = function(ingredients, outgredients) {
 	      var ingredientString = '';
@@ -28737,6 +28832,13 @@
 	          ingredientString = ingredientString + '&allowedIngredient[]=' + temp;
 	        }
 	      }
+	      var pageChange = function() {
+	        if (!$scope.currentPage.page) {
+	          return '';
+	        }
+	        var pageStr = "&maxResult=10&start=" + $scope.currentPage.page;
+	        return pageStr;
+	      }
 
 	      for (var prop in outgredients) {
 	        if(outgredients[prop] !== '') {
@@ -28745,17 +28847,14 @@
 	        }
 	      }
 	      outgredientString += '&requirePictures=true'
-	      var url = 'https://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString + outgredientString;
+	      var url = 'http://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString + outgredientString + pageChange();
+
 	      console.log(url);
 
 	      $http.get(url)
 	        .then(function(res) {
 	          console.log('success', res);
-	          if (res.data.matches.length === 0) {
-	            $scope.recipes = [{recipeName: 'Sorry No Matches Found'}];
-	          } else {
-	            $scope.recipes = res.data.matches;
-	          }
+	          $scope.recipes = res.data.matches;
 	          $scope.logo = res.data.attribution.logo;
 	          $scope.text = res.data.attribution.text;
 	          $scope.url  = res.data.attribution.url;
@@ -28765,12 +28864,12 @@
 	          $scope.errors.push(res);
 	        })
 	    };
-		}]);
+	  }]);
 	};
 
 
 /***/ },
-/* 4 */
+/* 8 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28797,85 +28896,6 @@
 	      }
 	    }
 		}]);
-	};
-
-
-/***/ },
-/* 5 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('starRating', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/rating_template.html',
-	      scope: {
-	        ratingValue: '=',
-	      },
-	      link: function($scope) {
-	        $scope.stars = [];
-	        if($scope.ratingValue) {
-	          for (var i = 0; i < 5; i++) {
-	            $scope.stars.push({filled: i < $scope.ratingValue});
-	          }
-	        }
-	      }
-	    }
-	  });
-	}
-
-
-/***/ },
-/* 6 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('searchForm', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/search_form.html',
-	    }
-	  });
-	};
-
-
-/***/ },
-/* 7 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('resultSort', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/result_sort.html',
-	    }
-	  });
-	};
-
-
-/***/ },
-/* 8 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('recipeList', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/recipe_list.html',
-	    }
-	  });
 	};
 
 
