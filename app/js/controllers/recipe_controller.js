@@ -1,14 +1,17 @@
 'use strict';
 
 module.exports = function(app) {
-	app.controller('recipeController', ['$scope', '$http', function($scope, $http) {
-		$scope.recipes = [];
-		$scope.errors = [];
-    //placeholder
+  app.controller('recipeController', ['$scope', '$http', function($scope, $http) {
+    $scope.recipes = [];
+    $scope.errors = [];
+    $scope.newSearchResult = '';
 
     $scope.logo = '';
     $scope.text = '';
     $scope.url = '';
+
+    $scope.Ingred;
+    $scope.Outgred;
 
     $scope.active = {
       nameIsActive: true,
@@ -33,6 +36,19 @@ module.exports = function(app) {
         return false;
       }
     }
+    $scope.currentPage = {
+      page: 0
+    }
+    $scope.previousPage = function() {
+
+      $scope.currentPage.page = $scope.currentPage.page - 10;
+      if ($scope.currentPage.page = -10) {
+        $scope.currentPage.page = 0;
+      }
+    }
+    $scope.nextPage = function() {
+      $scope.currentPage.page = $scope.currentPage.page + 10;
+    }
 
     $scope.getRecipes = function(ingredients, outgredients) {
       var ingredientString = '';
@@ -43,6 +59,13 @@ module.exports = function(app) {
           ingredientString = ingredientString + '&allowedIngredient[]=' + temp;
         }
       }
+      var pageChange = function() {
+        if (!$scope.currentPage.page) {
+          return '';
+        }
+        var pageStr = "&maxResult=10&start=" + $scope.currentPage.page;
+        return pageStr;
+      }
 
       for (var prop in outgredients) {
         if(outgredients[prop] !== '') {
@@ -51,17 +74,14 @@ module.exports = function(app) {
         }
       }
       outgredientString += '&requirePictures=true'
-      var url = 'https://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString + outgredientString;
+      var url = 'http://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString + outgredientString + pageChange();
+
       console.log(url);
 
       $http.get(url)
         .then(function(res) {
           console.log('success', res);
-          if (res.data.matches.length === 0) {
-            $scope.recipes = [{recipeName: 'Sorry No Matches Found'}];
-          } else {
-            $scope.recipes = res.data.matches;
-          }
+          $scope.recipes = res.data.matches;
           $scope.logo = res.data.attribution.logo;
           $scope.text = res.data.attribution.text;
           $scope.url  = res.data.attribution.url;
@@ -71,5 +91,5 @@ module.exports = function(app) {
           $scope.errors.push(res);
         })
     };
-	}]);
+  }]);
 };
