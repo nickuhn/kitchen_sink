@@ -22,15 +22,26 @@ li {
 
 .posRecipeName {
   margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 .posRecipeTime {
-  margin-bottom: 18px;
+  margin-bottom: 0px;
 }
 
 
 .posRecipeStars {
   padding-top: 0px;
+}
+
+#recipeThumbnail {
+  width: 100px;
+  display: inline-block;
+  height: 70px;
+}
+
+#recipeInfo {
+  display: inline-block;
 }
 
 #header {
@@ -119,10 +130,6 @@ li {
   margin: 0px;
   padding-left: 0px;
   margin-top: 0px;
-}
-
-#main {
-  height: 100%
 }
 
 .buttonOn {
