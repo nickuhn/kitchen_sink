@@ -9,6 +9,9 @@ module.exports = function(app) {
     $scope.logo = '';
     $scope.text = '';
     $scope.url = '';
+    $scope.roundPages = function(num) {
+      return (Math.floor(num/10) + 1);
+    }
 
     $scope.Ingred;
     $scope.Outgred;
@@ -85,6 +88,8 @@ module.exports = function(app) {
           $scope.logo = res.data.attribution.logo;
           $scope.text = res.data.attribution.text;
           $scope.url  = res.data.attribution.url;
+          $scope.results = res.data.totalMatchCount;
+
         },
         function(res) {
           console.log('error', res);
