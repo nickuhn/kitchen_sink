@@ -2,6 +2,9 @@ li {
   font-family: 'Lato', sans-serif;
   font-size: 14px;
 }
+button {
+  cursor: pointer;
+}
 
 
 .default {
@@ -26,7 +29,7 @@ li {
 }
 
 .posRecipeTime {
-  margin-bottom: 0px;
+  margin:8px 0px;
 }
 
 
@@ -42,6 +45,7 @@ li {
 
 #recipeInfo {
   display: inline-block;
+  margin-left: 20px;
 }
 
 #header {
@@ -53,7 +57,7 @@ li {
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 700;
   font-size: 32px;
-  color: #FFFFFF;
+  color: #E0F2DD;
   margin: 5px;
   padding: 5px;
   width: 200px;
@@ -62,6 +66,7 @@ li {
 
 #title strong {
   font-size: 60px;
+  color: #FFF;
 }
 
 #searchForm {
@@ -73,9 +78,10 @@ li {
 }
 
 #searchFormSubmit {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 15px;
   float: left;
-  margin-top: 5px;
-  margin-left: 100px;
+  margin: 5px 100px 20px;
   width: 125px;
   border-radius: 4px;
   background-color: #F4FBE5;
@@ -137,7 +143,6 @@ li {
   font-size: 16px;
   display: inline-block;
   margin: 0px;
-  padding: 1px;
   padding-left: 10px;
   padding-right: 10px;
   background-color: #FFFFFF;
@@ -151,7 +156,6 @@ li {
   color: white;
   display: inline-block;
   margin: 0px;
-  padding: 0px;
   padding-left: 10px;
   padding-right: 10px;
   background-color: #0E5003;
@@ -199,4 +203,12 @@ li {
   margin-top: 10px;
   margin-right: 10px;
   float:right;
+}
+
+#ingredientList {
+  margin:15px 101px;
+}
+
+#recipeLink {
+  margin-left: 125px;
 }
