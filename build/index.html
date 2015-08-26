@@ -1,132 +1,27 @@
 <!DOCTYPE html>
 <html>
+  <head>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
-    <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <title>Kitchen Sink</title>
-    </head>
-    <body class="default" data-ng-app="recipeApp">
-      <main data-ng-controller="recipeController" data-ng-init="getRecipes()">
-        <header id="header">
-          <img id="logo" src="findingstill" alt="Kitchen Sink Logo" />
-          <h1 id="title"><strong>K</strong>itchen <strong>S</strong>ink</h1>
-            <form id="searchForm" name="ingredientForm" data-ng-submit="getRecipes(ingredient,outgredient)">
-              <section>
-                <label id="ingredients" for="ingredientBody"><strong>IN</strong>gredient(s):</label>
-                <input type="text"
-                       name="ingredientField0"
-                       data-ng-minlength=3
-                       data-ng-model="ingredient.item0" />
-                <input type="text"
-                       name="ingredientField1"
-                       data-ng-minlength=3
-                       data-ng-model="ingredient.item1"
-                       data-ng-if="ingredient.item0.length>2" />
-                <input type="text"
-                       name="ingredientField2"
-                       data-ng-minlength=3
-                       data-ng-model="ingredient.item2"
-                       data-ng-if="ingredient.item1.length>2" />
-                <input type="text"
-                       name="ingredientField3"
-                       data-ng-minlength=3
-                       data-ng-model="ingredient.item3"
-                       data-ng-if="ingredient.item2.length>2" />
-                <input type="text"
-                       name="ingredientField4"
-                       data-ng-minlength=3
-                       data-ng-model="ingredient.item4"
-                       data-ng-if="ingredient.item3.length>2" />
-              </section>
-              <section>
-                <label id="outgredients" for ="outgredientBody"><strong>OUT</strong>gredient(s):</label>
-                <input type="text"
-                       name="outgredientField0"
-                       data-ng-minlength=3
-                       data-ng-model="outgredient.item0" />
-                <input type="text"
-                       name="outgredientField1"
-                       data-ng-minlength=3
-                       data-ng-model="outgredient.item1"
-                       data-ng-if="outgredient.item0.length>2" />
-                <input type="text"
-                       name="outgredientField2"
-                       data-ng-minlength=3
-                       data-ng-model="outgredient.item2"
-                       data-ng-if="outgredient.item1.length>2" />
-                <input type="text"
-                       name="outgredientField3"
-                       data-ng-minlength=3
-                       data-ng-model="outgredient.item3"
-                       data-ng-if="outgredient.item2.length>2" />
-                <input type="text"
-                       name="outgredientField4"
-                       data-ng-minlength=3
-                       data-ng-model="outgredient.item4"
-                       data-ng-if="outgredient.item3.length>2" />
-              </section>
-              <button id="searchFormSubmit" type="submit" data-ng-disabled="!ingredient.item0 && !outgredient.item0">Search</button>
-            </form>
-        </header>
-        <section class="default" id="nav">
-          <nav>
-            <ng-switch on="active.nameIsActive">
-              <button ng-switch-when="true" class="buttonOn">
-                <a>Name {{nameisActive}}</a>
-              </button>
-              <button ng-switch-default class="buttonOff">
-                <a ng-click="active.nameIsActive=true; active.ratingIsActive=false; active.cookingTimeIsActive=false">Name {{nameIsActive}}</a>
-              </button>
-            </ng-switch>
-            <ng-switch on="active.ratingIsActive">
-              <button ng-switch-when="true" class="buttonOn">
-                <a>Rating {{ratingIsActive}}</a>
-              </button>
-              <button ng-switch-default class="buttonOff">
-                <a ng-click="active.ratingIsActive=true; active.nameIsActive=false; active.cookingTimeIsActive=false">Rating {{ratingIsActive}}</a>
-              </button>
-            </ng-switch>
-            <ng-switch on="active.cookingTimeIsActive">
-              <button ng-switch-when="true" class="buttonOn">
-                <a>Cooking Time {{cookingTimeIsActive}}</a>
-              </button>
-              <button ng-switch-default class="buttonOff">
-                <a ng-click="active.cookingTimeIsActive=true; active.nameIsActive=false; active.ratingIsActive=false">Cooking Time {{cookingTimeIsActive}}</a>
-              </button>
-            </ng-switch>
-          </nav>
-        </section>
-        <section class="default" id="main">
-          <article class="default">
-            <div id="pic">
-            <ul class="recipesStyle">
-              <li data-ng-controller="ingredientController" data-ng-repeat="recipe in recipes | orderBy:sortType():sortReverse()" >
-                <article data-ng-click="getDirections(recipe.id)" ng-class-odd="'odd'" ng-class-even="'even'" class="recipeStyle">
-                  <div style="display:inline-block">
-                    <img style="width: 100px" src={{recipe.smallImageUrls[0]}} />
-                  </div>
-                  <article style="display:inline-block">
-                    <div class="posRecipeName">{{recipe.recipeName}}</div>
-                    <div data-star-rating data-rating-value="recipe.rating" class="posRecipeStars"></div>
-                  </article>
-                  <section data-ng-show="isOpen">
-                    <div data-recipe-details-directive
-                    data-directions="ingredients"
-                    ></div>
-                    <a href='{{sourceUrl}}'>{{sourceUrl}}</a>
-                  </section>
-                </article>
-              </li>
-            </ul>
-          </div id="pic">
-          </article>
-        </section>
-        <footer id="footer" >
-          <div style="display:inline-block">&copy Copyright 2015 Kitchen Sink LLC.</div>
-          <div style="display:inline-block;float:right;">{{text}}<a href='{{url}}'><img alt='Yummly' src='{{logo}}'/></a></div>
-        </footer>
-        <script src="bundle.js"></script>
-    </body>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Kitchen Sink</title>
+  </head>
+  <body class="default" data-ng-app="recipeApp" data-ng-controller="recipeController" data-ng-init="getRecipes()">
+    <header id="header">
+      <img id="logo" src="findingstill" alt="Kitchen Sink Logo" />
+      <h1 id="title"><strong>K</strong>itchen <strong>S</strong>ink</h1>
+      <section data-search-form></section>
+    </header>
+    <main>
+      <section data-result-sort></section>
+      <section data-recipe-list></section>
+    </main>
+    <footer id="footer" >
+      <p id="copyRight">&copy Copyright 2015 Kitchen Sink LLC.</p>
+      <p id="yummlyCopyRight">{{text}}</p>
+      <a href='{{url}}'><img alt='Yummly' src='{{logo}}' id="yummlyImage"/></a>
+    </footer>
+    <script src="bundle.js"></script>
+  </body>
 </html>

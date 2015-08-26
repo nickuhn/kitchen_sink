@@ -1,15 +1,22 @@
-<section data-ng-controller="recipeController">
-	<ul>
-		<div data-ng-if="recipe.showRate" data-ng-click="recipe.showTrend = false, recipe.showName = false">Rating</div>
-		<div data-ng-if="!recipe.showName" data-ng-click="recipe.showTrend = false, recipe.show">Name</div>
-	</ul>
-    <ol>
-      <li data-ng-repeat="recipe in recipes">
-        <div>Recipe: {{recipe.recipeName}}</div>
-        <div>Rating: {{recipe.rating}}</div>
+<article class="default" id="main">
+  <ul class="recipesStyle">
+    <li data-ng-controller="ingredientController" data-ng-repeat="recipe in recipes | orderBy:sortType():sortReverse()" >
+      <article data-ng-click="getDirections(recipe.id)" ng-class-odd="'odd'" ng-class-even="'even'" class="recipeStyle">
         <div style="display:inline-block">
-        <img style="width: 100px" src={smallImageUrls[0]}} />
+          <img style="width: 100px" src={{recipe.smallImageUrls[0]}} />
         </div>
-      </li>
-    </ol>
-</section>
+        <article style="display:inline-block">
+          <div class="posRecipeName">{{recipe.recipeName}}</div>
+          <div class="posRecipeTime" data-ng-if="recipe.totalTimeInSeconds !== NaN" >{{recipe.totalTimeInSeconds/60}} mins</div>
+          <div data-star-rating data-rating-value="recipe.rating" class="posRecipeStars"></div>
+        </article>
+        <section data-ng-show="isOpen">
+          <div data-recipe-details-directive
+          data-directions="ingredients"
+          ></div>
+          <a href='{{sourceUrl}}'>{{sourceUrl}}</a>
+        </section>
+      </article>
+    </li>
+  </ul>
+</article>

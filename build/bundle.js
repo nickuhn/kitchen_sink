@@ -52,6 +52,9 @@
 
 	__webpack_require__(2)(recipeApp);
 	__webpack_require__(5)(recipeApp);
+	__webpack_require__(6)(recipeApp);
+	__webpack_require__(7)(recipeApp);
+	__webpack_require__(8)(recipeApp);
 	__webpack_require__(3)(recipeApp);
 	__webpack_require__(4)(recipeApp);
 
@@ -28823,6 +28826,57 @@
 	    }
 	  });
 	}
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('searchForm', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/search_form.html',
+	    }
+	  });
+	};
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('resultSort', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/result_sort.html',
+	    }
+	  });
+	};
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('recipeList', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/recipe_list.html',
+	    }
+	  });
+	};
 
 
 /***/ }
