@@ -1,0 +1,35 @@
+<nav class="default" id="nav">
+  <ng-switch on="active.nameIsActive">
+    <button ng-switch-when="true"
+            class="buttonOn">
+      Name
+    </button>
+    <button ng-switch-default
+            class="buttonOff"
+            ng-click="active.nameIsActive=true; active.ratingIsActive=false; active.cookingTimeIsActive=false">
+      Name
+    </button>
+  </ng-switch>
+  <ng-switch on="active.ratingIsActive">
+    <button ng-switch-when="true"
+            class="buttonOn">
+      Rating
+    </button>
+    <button ng-switch-default
+            class="buttonOff"
+            ng-click="active.ratingIsActive=true; active.nameIsActive=false; active.cookingTimeIsActive=false">
+      Rating
+    </button>
+  </ng-switch>
+  <ng-switch on="active.cookingTimeIsActive">
+    <button ng-switch-when="true"
+            class="buttonOn">
+      Cooking Time
+    </button>
+    <button ng-switch-default
+            class="buttonOff"
+            ng-click="active.cookingTimeIsActive=true; active.nameIsActive=false; active.ratingIsActive=false">
+      Cooking Time
+    </button>
+  </ng-switch>
+</nav>
