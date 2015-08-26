@@ -15,7 +15,7 @@ gulp.task('webpack:dev', function() {
 });
 
 gulp.task('copy', function() {
-  return gulp.src(['app/**/*.html', 'app/**/*.css'])
+  return gulp.src(['app/**/*.html', 'app/**/*.css', 'app/**/*.png'])
     .pipe(gulp.dest('build/'));
 });
 
