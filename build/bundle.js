@@ -28742,7 +28742,7 @@
 	        }
 	      }
 	      outgredientString += '&requirePictures=true'
-	      var url = 'http://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString + outgredientString;
+	      var url = 'https://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString + outgredientString;
 	      console.log(url);
 
 	      $http.get(url)
@@ -28779,7 +28779,7 @@
 			$scope.sourceUrl = '';
 
 			$scope.getDirections = function(id) {
-	      var url = 'http://api.yummly.com/v1/api/recipe/' + id + '?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q';
+	      var url = 'https://api.yummly.com/v1/api/recipe/' + id + '?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q';
 	      if(!$scope.isOpen) {
 	       	$http.get(url)
 	        .then(function(res) {
