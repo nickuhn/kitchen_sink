@@ -21,8 +21,13 @@ li {
 }
 
 .posRecipeName {
-  margin-bottom: 36px;
+  margin-bottom: 0px;
 }
+
+.posRecipeTime {
+  margin-bottom: 18px;
+}
+
 
 .posRecipeStars {
   padding-top: 0px;

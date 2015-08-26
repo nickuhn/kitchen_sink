@@ -109,6 +109,7 @@
                   </div>
                   <article style="display:inline-block">
                     <div class="posRecipeName">{{recipe.recipeName}}</div>
+                    <div class="posRecipeTime" data-ng-if="recipe.totalTimeInSeconds !== NaN" >{{recipe.totalTimeInSeconds/60}} mins</div>
                     <div data-star-rating data-rating-value="recipe.rating" class="posRecipeStars"></div>
                   </article>
                   <section data-ng-show="isOpen">
