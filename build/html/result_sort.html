@@ -32,9 +32,5 @@
       Cooking Time
     </button>
   </ng-switch>
-  <button class="pageMove" data-ng-click="previousPage(); getRecipes(Ingred,Outgred)">Prev</button>
-
-  <button class="pageMove" data-ng-click="nextPage(); getRecipes(Ingred,Outgred)">Next</button>
-  <h3>Page {{currentPage.page + 1}}</h3>
-
+  <span class="pages" id="resultsFound">Total Results Found: {{results}}</span>
 </nav>

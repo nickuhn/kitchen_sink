@@ -13,7 +13,7 @@
       </section>
     </article>
   </li>
-  <button class="pageMove" data-ng-click="previousPage(); getRecipes(Ingred,Outgred)">Prev</button>
-  <button class="pageMove" data-ng-click="nextPage(); getRecipes(Ingred,Outgred)">Next</button>
-  <h3>Page {{currentPage.page + 1}}/{{roundPages(results)}}</h3>
+  <button class="pageMove" data-ng-click="previousPage(); getRecipes(Ingred,Outgred)">Previous Page</button>
+  <span id="currentPage">Page {{currentPage.page + 1}}/{{roundPages(results)}}</span>
+  <button class="pageMove" data-ng-click="nextPage(); getRecipes(Ingred,Outgred)">Next Page</button>
 </ul>
