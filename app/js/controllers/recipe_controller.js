@@ -10,7 +10,7 @@ module.exports = function(app) {
     $scope.text = '';
     $scope.url = '';
     $scope.roundPages = function(num) {
-      return Math.floor(num/10);
+      return (Math.floor(num/10) + 1);
     }
 
     $scope.Ingred;
