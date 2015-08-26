@@ -103,6 +103,7 @@ li {
   font-size: 11px;
   background-color: #FDE7E9;
   bottom: 0;
+  height: 40px;
   width: 100%;
 }
 
@@ -173,4 +174,22 @@ li {
 }
 .rating span.filled {
   color: gold;
+}
+
+#copyRight {
+  margin-top: 12px;
+  margin-left: 10px;
+  display:inline-block
+}
+
+#yummlyCopyRight {
+  margin-top: 12px;
+  margin-right: 10px;
+  float:right;
+}
+
+#yummlyImage {
+  margin-top: 10px;
+  margin-right: 10px;
+  float:right;
 }
