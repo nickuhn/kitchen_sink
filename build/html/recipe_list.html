@@ -1,22 +1,16 @@
-<article class="default" id="main">
-  <ul class="recipesStyle">
-    <li data-ng-controller="ingredientController" data-ng-repeat="recipe in recipes | orderBy:sortType():sortReverse()" >
-      <article data-ng-click="getDirections(recipe.id)" ng-class-odd="'odd'" ng-class-even="'even'" class="recipeStyle">
-        <div style="display:inline-block">
-          <img style="width: 100px" src={{recipe.smallImageUrls[0]}} />
-        </div>
-        <article style="display:inline-block">
-          <div class="posRecipeName">{{recipe.recipeName}}</div>
-          <div class="posRecipeTime" data-ng-if="recipe.totalTimeInSeconds !== NaN" >{{recipe.totalTimeInSeconds/60}} mins</div>
-          <div data-star-rating data-rating-value="recipe.rating" class="posRecipeStars"></div>
-        </article>
-        <section data-ng-show="isOpen">
-          <div data-recipe-details-directive
-          data-directions="ingredients"
-          ></div>
-          <a href='{{sourceUrl}}'>{{sourceUrl}}</a>
-        </section>
-      </article>
-    </li>
-  </ul>
-</article>
+<ul class="recipesStyle">
+  <li data-ng-controller="ingredientController" data-ng-repeat="recipe in recipes | orderBy:sortType():sortReverse()" >
+    <article data-ng-click="getDirections(recipe.id)" ng-class-odd="'odd'" ng-class-even="'even'" class="recipeStyle">
+      <img id="recipeThumbnail" src={{recipe.smallImageUrls[0]}} />
+      <section id="recipeInfo">
+        <h3 class="posRecipeName">{{recipe.recipeName}}</h3>
+        <p class="posRecipeTime" data-ng-if="recipe.totalTimeInSeconds !== NaN" >{{recipe.totalTimeInSeconds/60}} mins</p>
+        <article data-star-rating data-rating-value="recipe.rating" class="posRecipeStars"></article>
+      </section>
+      <section data-ng-if="isOpen">
+        <article data-recipe-details data-ingredients="ingredients"></article>
+        <a href='{{sourceUrl}}'>{{sourceUrl}}</a>
+      </section>
+    </article>
+  </li>
+</ul>
