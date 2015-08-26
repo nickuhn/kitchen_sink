@@ -51,12 +51,12 @@
 	var recipeApp = angular.module('recipeApp', []);
 
 	__webpack_require__(2)(recipeApp);
-	__webpack_require__(3)(recipeApp);
-	__webpack_require__(4)(recipeApp);
 	__webpack_require__(5)(recipeApp);
 	__webpack_require__(6)(recipeApp);
 	__webpack_require__(7)(recipeApp);
 	__webpack_require__(8)(recipeApp);
+	__webpack_require__(3)(recipeApp);
+	__webpack_require__(4)(recipeApp);
 
 
 /***/ },
@@ -28695,85 +28695,6 @@
 	'use strict';
 
 	module.exports = function(app) {
-	  app.directive('starRating', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/rating_template.html',
-	      scope: {
-	        ratingValue: '=',
-	      },
-	      link: function($scope) {
-	        $scope.stars = [];
-	        if($scope.ratingValue) {
-	          for (var i = 0; i < 5; i++) {
-	            $scope.stars.push({filled: i < $scope.ratingValue});
-	          }
-	        }
-	      }
-	    }
-	  });
-	}
-
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('searchForm', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/search_form.html',
-	    }
-	  });
-	};
-
-
-/***/ },
-/* 5 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('resultSort', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/result_sort.html',
-	    }
-	  });
-	};
-
-
-/***/ },
-/* 6 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('recipeList', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/recipe_list.html',
-	    }
-	  });
-	};
-
-
-/***/ },
-/* 7 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
 	  app.controller('recipeController', ['$scope', '$http', function($scope, $http) {
 	    $scope.recipes = [];
 	    $scope.errors = [];
@@ -28869,7 +28790,7 @@
 
 
 /***/ },
-/* 8 */
+/* 4 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28896,6 +28817,85 @@
 	      }
 	    }
 		}]);
+	};
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('starRating', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/rating_template.html',
+	      scope: {
+	        ratingValue: '=',
+	      },
+	      link: function($scope) {
+	        $scope.stars = [];
+	        if($scope.ratingValue) {
+	          for (var i = 0; i < 5; i++) {
+	            $scope.stars.push({filled: i < $scope.ratingValue});
+	          }
+	        }
+	      }
+	    }
+	  });
+	}
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('searchForm', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/search_form.html',
+	    }
+	  });
+	};
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('resultSort', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/result_sort.html',
+	    }
+	  });
+	};
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('recipeList', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/recipe_list.html',
+	    }
+	  });
 	};
 
 
