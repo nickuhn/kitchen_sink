@@ -15,5 +15,5 @@
   </li>
   <button class="pageMove" data-ng-click="previousPage(); getRecipes(Ingred,Outgred)">Prev</button>
   <button class="pageMove" data-ng-click="nextPage(); getRecipes(Ingred,Outgred)">Next</button>
-  <h3>Page {{currentPage.page + 1}}</h3>
+  <h3>Page {{currentPage.page + 1}}/{{roundPages(results) + 1}}</h3>
 </ul>
