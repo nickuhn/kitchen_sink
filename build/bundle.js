@@ -32507,7 +32507,11 @@
 	        $scope.stars = [];
 	        if($scope.ratingValue) {
 	          for (var i = 0; i < 5; i++) {
-	            $scope.stars.push({filled: i < $scope.ratingValue});
+	            if (i < $scope.ratingValue) {
+	              $scope.stars.push('filled ' + i )
+	            } else {
+	              $scope.stars.push('empty ' + i)
+	            }
 	          }
 	        }
 	      }
