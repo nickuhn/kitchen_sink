@@ -20,6 +20,6 @@ module.exports = function(app) {
       } else {
       	$scope.isOpen = false;
       }
-    }
+    };
 	}]);
 };
