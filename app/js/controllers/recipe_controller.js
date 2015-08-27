@@ -27,16 +27,12 @@ module.exports = function(app) {
       form.reset();
       $scope.Ingred = angular.copy(ingredient);
       $scope.Outgred = angular.copy(outgredient);
-      ingredient.item0 = '';
-      ingredient.item1 = '';
-      ingredient.item2 = '';
-      ingredient.item3 = '';
-      ingredient.item4 = '';
-      outgredient.item0 = '';
-      outgredient.item1 = '';
-      outgredient.item2 = '';
-      outgredient.item3 = '';
-      outgredient.item4 = '';
+      for(var prop in ingredient) {
+        ingredient[prop] = '';
+      }
+      for(var prop in outgredient) {
+        outgredient[prop] = '';
+      }
     }
     $scope.roundPages = function(num) {
       return (Math.floor(num/10) + 1);
