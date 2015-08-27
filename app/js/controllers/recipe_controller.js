@@ -19,6 +19,22 @@ module.exports = function(app) {
       page: 0
     };
 
+    $scope.resetForm = function(ingredient,outgredient) {
+      var form = document.getElementById('searchForm');
+      form.reset();
+      $scope.Ingred = angular.copy(ingredient);
+      $scope.Outgred = angular.copy(outgredient);
+      ingredient.item0 = '';
+      ingredient.item1 = '';
+      ingredient.item2 = '';
+      ingredient.item3 = '';
+      ingredient.item4 = '';
+      outgredient.item0 = '';
+      outgredient.item1 = '';
+      outgredient.item2 = '';
+      outgredient.item3 = '';
+      outgredient.item4 = '';
+    }
     $scope.roundPages = function(num) {
       return (Math.floor(num/10) + 1);
     };
