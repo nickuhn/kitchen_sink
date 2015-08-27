@@ -41,15 +41,8 @@ module.exports = function(app) {
       } else {
         return false;
       }
-<<<<<<< HEAD
-    }
-    $scope.currentPage = {
-      page: 0
-    }
-=======
     };
 
->>>>>>> 8b0d03d68c6e70a3e70a2e43ee26eb59a70724af
     $scope.previousPage = function() {
       $scope.currentPage.page = $scope.currentPage.page - 1;
       if ($scope.currentPage.page === -1) {
