@@ -12,7 +12,6 @@ module.exports = function(app) {
     $scope.roundPages = function(num) {
       return (Math.floor(num/10) + 1);
     }
-
     $scope.Ingred;
     $scope.Outgred;
 
@@ -43,7 +42,6 @@ module.exports = function(app) {
       page: 0
     }
     $scope.previousPage = function() {
-
       $scope.currentPage.page = $scope.currentPage.page - 1;
       if ($scope.currentPage.page = -1) {
         $scope.currentPage.page = 0;
