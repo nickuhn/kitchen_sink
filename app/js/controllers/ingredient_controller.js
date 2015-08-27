@@ -11,11 +11,9 @@ module.exports = function(app) {
       if(!$scope.isOpen) {
        	$http.get(url)
         .then(function(res) {
-          	console.log(res);
           $scope.ingredients = res.data.ingredientLines;
           $scope.sourceUrl = res.data.source.sourceRecipeUrl;
           $scope.isOpen = true;
-          console.log($scope.sourceUrl);
         });
       } else {
       	$scope.isOpen = false;

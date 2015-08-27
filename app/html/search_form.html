@@ -1,4 +1,6 @@
-<form id="searchForm" name="ingredientForm" data-ng-submit="getRecipes(ingredient,outgredient,allergyInfo); resetForm(ingredient, outgredient);">
+<form id="searchForm"
+      name="ingredientForm"
+      data-ng-submit="getRecipes(ingredient,outgredient,allergyInfo); resetForm(ingredient, outgredient);">
   <section>
     <label id="ingredients" for="ingredientBody"><strong>IN</strong>gredient(s):</label>
     <input type="text"
@@ -68,7 +70,6 @@
       <option value="&allowedAllergy[]=395^Tree Nut-Free">Tree Nut-Free</option>
       <option value="&allowedAllergy[]=392^Wheat-Free">Wheat-Free</option>
     </select>
-
   </section>
   <button id="searchFormSubmit" type="submit">Find Fine Foods</button>
 </form>

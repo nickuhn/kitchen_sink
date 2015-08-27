@@ -1,19 +1,45 @@
 <ul class="recipesStyle">
-  <li data-ng-controller="ingredientController" data-ng-repeat="recipe in recipes | orderBy:sortType():sortReverse()" class="default">
-    <article data-ng-click="getDirections(recipe.id)" ng-class-odd="'odd'" ng-class-even="'even'" class="recipeStyle">
+  <li data-ng-controller="ingredientController"
+      data-ng-repeat="recipe in recipes | orderBy:sortType():sortReverse()"
+      class="default">
+    <article data-ng-click="getDirections(recipe.id)"
+             ng-class-odd="'odd'"
+             ng-class-even="'even'"
+             class="recipeStyle" >
       <img id="recipeThumbnail" src={{recipe.smallImageUrls[0]}} />
       <section id="recipeInfo">
-        <h3 class="posRecipeName">{{recipe.recipeName}}</h3>
-        <p class="posRecipeTime" data-ng-if="recipe.totalTimeInSeconds !== NaN" >Estimated Cooking Time: {{recipe.totalTimeInSeconds/60}} mins</p>
-        <article data-star-rating data-rating-value="recipe.rating" class="posRecipeStars"></article>
+        <h3 class="posRecipeName">
+          {{recipe.recipeName}}
+        </h3>
+        <p class="posRecipeTime" data-ng-if="recipe.totalTimeInSeconds !== NaN" >
+          Estimated Cooking Time: {{recipe.totalTimeInSeconds/60}} mins
+        </p>
+        <article data-star-rating
+                 data-rating-value="recipe.rating"
+                 class="posRecipeStars">
+        </article>
       </section>
       <section data-ng-if="isOpen">
-        <article data-recipe-details data-ingredients="ingredients"></article>
-        <a id="recipeLink" href='{{sourceUrl}}' target="_blank">Click Here For Full Recipe</a>
+        <article data-recipe-details
+                 data-ingredients="ingredients">
+        </article>
+        <a id="recipeLink" href='{{sourceUrl}}' target="_blank">
+          Click Here For Full Recipe
+        </a>
       </section>
     </article>
   </li>
-  <button class="pageMove" data-ng-click="previousPage(); getRecipes(Ingred,Outgred,allergyInfo)" data-ng-disabled="currentPage.page + 1 === 1">Previous Page</button>
-  <span id="currentPage">Page {{currentPage.page + 1}}/{{roundPages(results)}}</span>
-  <button class="pageMove" data-ng-click="nextPage(); getRecipes(Ingred,Outgred,allergyInfo)" data-ng-disabled="currentPage.page + 1 >= roundPages(results)">Next Page</button>
+  <button class="pageMove"
+          data-ng-click="previousPage(); getRecipes(Ingred,Outgred,allergyInfo)"
+          data-ng-disabled="currentPage.page + 1 === 1">
+    Previous Page
+  </button>
+  <span id="currentPage">
+    Page {{currentPage.page + 1}}/{{roundPages(results)}}
+  </span>
+  <button class="pageMove"
+          data-ng-click="nextPage(); getRecipes(Ingred,Outgred,allergyInfo)"
+          data-ng-disabled="currentPage.page + 1 >= roundPages(results)">
+    Next Page
+  </button>
 </ul>
