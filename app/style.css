@@ -130,7 +130,9 @@ button {
 }
 
 #allergiesYo {
-  width: 133px;
+  width: 131px;
+  margin-bottom: 5px;
+  background-color: #E0F2DD;
 }
 #allergySon {
   padding-right: 15px;
