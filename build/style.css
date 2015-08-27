@@ -105,7 +105,7 @@ button {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 15px;
   float: left;
-  margin: 5px 100px 20px;
+  margin: 5px 106px 20px;
   width: 125px;
   border-radius: 4px;
   background-color: #F4FBE5;
@@ -125,7 +125,8 @@ button {
 }
 #searchForm input {
   background-color: #E0F2DD;
-  margin-bottom: 5px;
+  margin: 5px;
+  width: 130px;
 }
 
 #ingredients {
@@ -133,12 +134,12 @@ button {
 }
 
 #allergiesYo {
-  width: 131px;
+  width: 137px;
   margin-bottom: 5px;
   background-color: #E0F2DD;
 }
 #allergySon {
-  padding-right: 15px;
+  padding-right: 41px;
 }
 #nav {
   background-color: #0E5003;
