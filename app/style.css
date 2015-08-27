@@ -6,6 +6,15 @@ button {
   cursor: pointer;
 }
 
+.pageMove:active {
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  margin: 15px 15px 0px 0px;
+  width: 125px;
+  padding: 5px;
+  background-color: #FDE7E9;
+}
+
 
 .default {
   margin: 0;
@@ -87,7 +96,7 @@ button {
   background-color: #F4FBE5;
 }
 
-#searchFormSubmit:hover {
+#searchFormSubmit:active {
   background-color: #FDE7E9;
 }
 
