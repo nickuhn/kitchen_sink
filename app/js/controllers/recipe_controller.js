@@ -18,6 +18,9 @@ module.exports = function(app) {
     $scope.currentPage = {
       page: 0
     };
+    $scope.allergyInformation = {
+      allergy: ''
+    }
 
     $scope.roundPages = function(num) {
       return (Math.floor(num/10) + 1);
@@ -54,9 +57,11 @@ module.exports = function(app) {
       $scope.currentPage.page = $scope.currentPage.page + 1;
     };
 
-    $scope.getRecipes = function(ingredients, outgredients) {
+    $scope.getRecipes = function(ingredients, outgredients,allergyInfo) {
+      console.log("allergy:", allergyInfo);
       var ingredientString = '';
       var outgredientString = '';
+      var allergy = '';
       var url = '';
       for (var prop in ingredients) {
         if(ingredients[prop] !== '') {
@@ -71,6 +76,14 @@ module.exports = function(app) {
         var pageStr = '&maxResult=10&start=' + ($scope.currentPage.page * 10);
         return pageStr;
       };
+      var allergyAdd = function() {
+        $scope.allergyInformation.allergy = allergyInfo;
+        if (!$scope.allergyInformation.allergy) {
+          return '';
+        }
+        return allergyInfo;
+      }
+
       for (var prop in outgredients) {
         if(outgredients[prop] !== '') {
           var temp = outgredients[prop].toLowerCase().replace(' ', '%20');
@@ -78,7 +91,8 @@ module.exports = function(app) {
         }
       }
       outgredientString += '&requirePictures=true';
-      url = 'https://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString + outgredientString + pageChange();
+      url = 'https://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString + outgredientString + pageChange() + allergyAdd();
+      console.log(url);
       $http.get(url)
         .then(function(res) {
           if (res.data.matches.length > 0) {
@@ -86,6 +100,7 @@ module.exports = function(app) {
           } else {
             $scope.recipes = [{recipeName: 'Sorry, We couldn\'t find any recipes to match that combination, but have a cookie!', smallImageUrls: ['../cookie.jpg']}];
           }
+
           $scope.logo = res.data.attribution.logo;
           $scope.text = res.data.attribution.text;
           $scope.url  = res.data.attribution.url;
@@ -95,6 +110,7 @@ module.exports = function(app) {
           console.log('error', res);
           $scope.errors.push(res);
         });
+        //console.log(doe);
     };
   }]);
 };
