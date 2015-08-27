@@ -1,8 +1,9 @@
 'use strict';
 
 require('angular/angular');
+require('angular-animate');
 
-var recipeApp = angular.module('recipeApp', []);
+var recipeApp = angular.module('recipeApp', ['ngAnimate']);
 
 require('./js/directives/recipe_directive.js')(recipeApp);
 require('./js/directives/rating_directive.js')(recipeApp);

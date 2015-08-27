@@ -20,16 +20,28 @@ button {
   margin: 0;
   padding: 0;
   background-color: #FFFFFF;
+  -webkit-transition: none !important;
+  transition: none !important;
 }
 
 .recipeStyle {
-  margin: 0px;
-  padding: 10px;
-  font-size: 16px;
+    margin: 0px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .recipesStyle {
-  list-style-type: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 15px 25px;
+    -webkit-box-shadow: inset 3px 3px 15px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: inset 3px 3px 15px 0px rgba(0,0,0,0.35);
+    box-shadow: inset 3px 3px 15px 0px rgba(0,0,0,0.35);
+}
+
+.recipeStyle:hover {
+  background-color: #FDE7E9;
 }
 
 .posRecipeName {
@@ -80,7 +92,7 @@ button {
 
 #searchForm {
   font-family: 'Roboto Condensed', sans-serif;
-  color: #FFFFFF;
+  color: #000;
   display: inline-block;
   margin: 10px 125px 0px;
   padding: 5px;
@@ -117,6 +129,14 @@ button {
   padding-right: 17px;
 }
 
+#allergiesYo {
+  width: 131px;
+  margin-bottom: 5px;
+  background-color: #E0F2DD;
+}
+#allergySon {
+  padding-right: 15px;
+}
 #nav {
   background-color: #0E5003;
   padding-top: 7px;
@@ -150,27 +170,33 @@ button {
 }
 
 .buttonOn {
-  font-family: 'Lato', sans-serif;
-  font-size: 16px;
-  display: inline-block;
-  margin: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #FFFFFF;
-  border: 0px;
-  border-radius: 2px 2px 0px 0px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    display: inline-block;
+    margin: 0px;
+    padding: 5px 10px 5px 10px;
+    background-color: #FFFFFF;
+    border: 0px;
+    border-radius: 2px 2px 0px 0px;
+    -webkit-transition: none !important;
+    transition: none !important;
+    -webkit-box-shadow: 0px 15px 5px -1px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 15px 5px -1px rgba(255,255,255,1);
+    box-shadow: 0px 15px 5px -1px rgba(255,255,255,1);
 }
 
 .buttonOff {
-  font-family: 'Lato', sans-serif;
-  font-size: 16px;
-  color: white;
-  display: inline-block;
-  margin: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #0E5003;
-  border: 0px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: white;
+    display: inline-block;
+    margin: 0px;
+    padding: 5px 10px 5px 10px;
+    background-color: #415B04;
+    border: 0px;
+    border-radius: 2px 2px 0px 0px;
+    -webkit-transition: none !important;
+    transition: none !important;
 }
 
 .query {
@@ -246,4 +272,32 @@ button {
 
 #recipeLink {
   margin-left: 125px;
+}
+
+.item {
+  clear:both
+}
+
+.ng-move,
+.ng-enter,
+.ng-leave {
+  -webkit-transition:all linear 0.3s;
+  transition:all linear 0.3s;
+}
+
+.ng-leave.ng-leave-active,
+.ng-move,
+.ng-enter {
+  opacity:0;
+}
+
+.ng-leave,
+.ng-move.ng-move-active,
+.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.no-animate {
+   -webkit-transition: none !important;
+   transition: none !important;
 }
