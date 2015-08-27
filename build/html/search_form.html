@@ -1,4 +1,4 @@
-<form id="searchForm" name="ingredientForm" data-ng-submit="getRecipes(ingredient,outgredient,allergyInfo); Ingred=ingredient; Outgred=outgredient">
+<form id="searchForm" name="ingredientForm" data-ng-submit="getRecipes(ingredient,outgredient,allergyInfo); resetForm(ingredient, outgredient);">
   <section>
     <label id="ingredients" for="ingredientBody"><strong>IN</strong>gredient(s):</label>
     <input type="text"
@@ -54,7 +54,7 @@
            data-ng-if="outgredient.item3.length>2" />
   </section>
   <section>
-    <label id="allergySon"><strong>ALL</strong>ergies(s):</label>
+    <label id="allergySon"><strong>ALL</strong>ergie(s):</label>
     <select id="allergiesYo" data-ng-model="allergyInfo">
       <option value="&allowedAllergy[]=396^Dairy-Free">Dairy-Free</option>
       <option value="&allowedAllergy[]=397^Egg-Free">Egg-Free</option>
