@@ -119,6 +119,12 @@ button {
   padding-right: 17px;
 }
 
+#allergiesYo {
+  width: 133px;
+}
+#allergySon {
+  padding-right: 15px;
+}
 #nav {
   background-color: #0E5003;
   padding-top: 7px;
