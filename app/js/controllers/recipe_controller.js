@@ -22,6 +22,18 @@ module.exports = function(app) {
       allergy: ''
     }
 
+    $scope.resetForm = function(ingredient,outgredient) {
+      var form = document.getElementById('searchForm');
+      form.reset();
+      $scope.Ingred = angular.copy(ingredient);
+      $scope.Outgred = angular.copy(outgredient);
+      for(var prop in ingredient) {
+        ingredient[prop] = '';
+      }
+      for(var prop in outgredient) {
+        outgredient[prop] = '';
+      }
+    }
     $scope.roundPages = function(num) {
       return (Math.floor(num/10) + 1);
     };
