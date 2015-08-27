@@ -51,12 +51,12 @@
 	var recipeApp = angular.module('recipeApp', []);
 
 	__webpack_require__(2)(recipeApp);
+	__webpack_require__(3)(recipeApp);
+	__webpack_require__(4)(recipeApp);
 	__webpack_require__(5)(recipeApp);
 	__webpack_require__(6)(recipeApp);
 	__webpack_require__(7)(recipeApp);
 	__webpack_require__(8)(recipeApp);
-	__webpack_require__(3)(recipeApp);
-	__webpack_require__(4)(recipeApp);
 
 
 /***/ },
@@ -28695,6 +28695,85 @@
 	'use strict';
 
 	module.exports = function(app) {
+	  app.directive('starRating', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/rating_template.html',
+	      scope: {
+	        ratingValue: '=',
+	      },
+	      link: function($scope) {
+	        $scope.stars = [];
+	        if($scope.ratingValue) {
+	          for (var i = 0; i < 5; i++) {
+	            $scope.stars.push({filled: i < $scope.ratingValue});
+	          }
+	        }
+	      }
+	    }
+	  });
+	}
+
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('searchForm', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/search_form.html',
+	    }
+	  });
+	};
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('resultSort', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/result_sort.html',
+	    }
+	  });
+	};
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('recipeList', function() {
+	    return {
+	      restrict: 'CA',
+	      replace: true,
+	      templateUrl: './../../../html/recipe_list.html',
+	    }
+	  });
+	};
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
 	  app.controller('recipeController', ['$scope', '$http', function($scope, $http) {
 	    $scope.recipes = [];
 	    $scope.errors = [];
@@ -28712,6 +28791,9 @@
 	    $scope.currentPage = {
 	      page: 0
 	    };
+	    $scope.allergyInformation = {
+	      allergy: ''
+	    }
 
 	    $scope.roundPages = function(num) {
 	      return (Math.floor(num/10) + 1);
@@ -28748,9 +28830,11 @@
 	      $scope.currentPage.page = $scope.currentPage.page + 1;
 	    };
 
-	    $scope.getRecipes = function(ingredients, outgredients) {
+	    $scope.getRecipes = function(ingredients, outgredients,allergyInfo) {
+	      console.log("allergy:", allergyInfo);
 	      var ingredientString = '';
 	      var outgredientString = '';
+	      var allergy = '';
 	      var url = '';
 	      for (var prop in ingredients) {
 	        if(ingredients[prop] !== '') {
@@ -28765,6 +28849,14 @@
 	        var pageStr = '&maxResult=10&start=' + ($scope.currentPage.page * 10);
 	        return pageStr;
 	      };
+	      var allergyAdd = function() {
+	        $scope.allergyInformation.allergy = allergyInfo;
+	        if (!$scope.allergyInformation.allergy) {
+	          return '';
+	        }
+	        return allergyInfo;
+	      }
+
 	      for (var prop in outgredients) {
 	        if(outgredients[prop] !== '') {
 	          var temp = outgredients[prop].toLowerCase().replace(' ', '%20');
@@ -28772,7 +28864,8 @@
 	        }
 	      }
 	      outgredientString += '&requirePictures=true';
-	      url = 'https://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString + outgredientString + pageChange();
+	      url = 'https://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString + outgredientString + pageChange() + allergyAdd();
+	      console.log(url);
 	      $http.get(url)
 	        .then(function(res) {
 	          if (res.data.matches.length > 0) {
@@ -28780,6 +28873,7 @@
 	          } else {
 	            $scope.recipes = [{recipeName: 'Sorry, We couldn\'t find any recipes to match that combination, but have a cookie!', smallImageUrls: ['../cookie.jpg']}];
 	          }
+
 	          $scope.logo = res.data.attribution.logo;
 	          $scope.text = res.data.attribution.text;
 	          $scope.url  = res.data.attribution.url;
@@ -28789,13 +28883,14 @@
 	          console.log('error', res);
 	          $scope.errors.push(res);
 	        });
+	        //console.log(doe);
 	    };
 	  }]);
 	};
 
 
 /***/ },
-/* 4 */
+/* 8 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28822,85 +28917,6 @@
 	      }
 	    };
 		}]);
-	};
-
-
-/***/ },
-/* 5 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('starRating', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/rating_template.html',
-	      scope: {
-	        ratingValue: '=',
-	      },
-	      link: function($scope) {
-	        $scope.stars = [];
-	        if($scope.ratingValue) {
-	          for (var i = 0; i < 5; i++) {
-	            $scope.stars.push({filled: i < $scope.ratingValue});
-	          }
-	        }
-	      }
-	    }
-	  });
-	}
-
-
-/***/ },
-/* 6 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('searchForm', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/search_form.html',
-	    }
-	  });
-	};
-
-
-/***/ },
-/* 7 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('resultSort', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/result_sort.html',
-	    }
-	  });
-	};
-
-
-/***/ },
-/* 8 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('recipeList', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/recipe_list.html',
-	    }
-	  });
 	};
 
 

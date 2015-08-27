@@ -1,4 +1,4 @@
-<form id="searchForm" name="ingredientForm" data-ng-submit="getRecipes(ingredient,outgredient); Ingred=ingredient; Outgred=outgredient">
+<form id="searchForm" name="ingredientForm" data-ng-submit="getRecipes(ingredient,outgredient,allergyInfo); Ingred=ingredient; Outgred=outgredient">
   <section>
     <label id="ingredients" for="ingredientBody"><strong>IN</strong>gredient(s):</label>
     <input type="text"
@@ -52,6 +52,22 @@
            data-ng-minlength=3
            data-ng-model="outgredient.item4"
            data-ng-if="outgredient.item3.length>2" />
+  </section>
+  <section>
+    <select id="allergiesYo" data-ng-model="allergyInfo">
+      <option>Please select allergy</option>
+      <option value="&allowedAllergy[]=396^Dairy-Free">Dairy-Free</option>
+      <option value="&allowedAllergy[]=397^Egg-Free">Egg-Free</option>
+      <option value="&allowedAllergy[]=393^Gluten-Free">Gluten-Free</option>
+      <option value="&allowedAllergy[]=394^Peanut-Free">Peanut-Free</option>
+      <option value="&allowedAllergy[]=398^Seafood-Free">Seafood-Free</option>
+      <option value="&allowedAllergy[]=399^Sesame-Free">Sesame-Free</option>
+      <option value="&allowedAllergy[]=400^Soy-Free">Soy-Free</option>
+      <option value="&allowedAllergy[]=401^Sulfite-Free">Sulfite-Free</option>
+      <option value="&allowedAllergy[]=395^Tree Nut-Free">Tree Nut-Free</option>
+      <option value="&allowedAllergy[]=392^Wheat-Free">Wheat-Free</option>
+    </select>
+
   </section>
   <button id="searchFormSubmit" type="submit" data-ng-disabled="!ingredient.item0 && !outgredient.item0">Find Fine Foods</button>
 </form>
