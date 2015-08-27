@@ -261,8 +261,8 @@ button {
 .ng-move,
 .ng-enter,
 .ng-leave {
-  -webkit-transition:all linear 0.5s;
-  transition:all linear 0.5s;
+  -webkit-transition:all linear 0.3s;
+  transition:all linear 0.3s;
 }
 
 .ng-leave.ng-leave-active,

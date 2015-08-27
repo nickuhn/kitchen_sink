@@ -20,6 +20,8 @@ button {
   margin: 0;
   padding: 0;
   background-color: #FFFFFF;
+  -webkit-transition: none !important;
+  transition: none !important;
 }
 
 .recipeStyle {
@@ -159,6 +161,8 @@ button {
   background-color: #FFFFFF;
   border: 0px;
   border-radius: 2px 2px 0px 0px;
+  -webkit-transition: none !important;
+  transition: none !important;
 }
 
 .buttonOff {
@@ -171,6 +175,8 @@ button {
   padding-right: 10px;
   background-color: #0E5003;
   border: 0px;
+  -webkit-transition: none !important;
+  transition: none !important;
 }
 
 .query {
@@ -246,4 +252,32 @@ button {
 
 #recipeLink {
   margin-left: 125px;
+}
+
+.item {
+  clear:both
+}
+
+.ng-move,
+.ng-enter,
+.ng-leave {
+  -webkit-transition:all linear 0.3s;
+  transition:all linear 0.3s;
+}
+
+.ng-leave.ng-leave-active,
+.ng-move,
+.ng-enter {
+  opacity:0;
+}
+
+.ng-leave,
+.ng-move.ng-move-active,
+.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.no-animate {
+   -webkit-transition: none !important;
+   transition: none !important;
 }
