@@ -1,5 +1,5 @@
 <ul class="recipesStyle">
-  <li data-ng-controller="ingredientController" data-ng-repeat="recipe in recipes | orderBy:sortType():sortReverse()" >
+  <li data-ng-controller="ingredientController" data-ng-repeat="recipe in recipes | orderBy:sortType():sortReverse()" class="default">
     <article data-ng-click="getDirections(recipe.id)" ng-class-odd="'odd'" ng-class-even="'even'" class="recipeStyle">
       <img id="recipeThumbnail" src={{recipe.smallImageUrls[0]}} />
       <section id="recipeInfo">
