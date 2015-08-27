@@ -10,6 +10,7 @@ module.exports = function(app) {
     $scope.url = '';
     $scope.Ingred;
     $scope.Outgred;
+    $scope.foundMessage = '';
     $scope.active = {
       nameIsActive: true,
       ratingIsActive: false,
@@ -23,16 +24,39 @@ module.exports = function(app) {
     }
 
     $scope.resetForm = function(ingredient,outgredient) {
+      var ingredientList = [];
+      var outgredientList = [];
       var form = document.getElementById('searchForm');
       form.reset();
+      function printArray(array) {
+        var len = array.length;
+        var message = '';
+        for (var i = 0; i < len; i++) {
+          if (array.length > 2) {
+            message = message + ' ' + array.shift() + ', ';
+          } else if (array.length === 2) {
+            message = message + ' ' + array.shift() + ' and ' + array.shift();
+          } else if (array.length === 1) {
+            message = message + ' ' + array.shift();
+          }
+        };
+        return message;
+      }
       $scope.Ingred = angular.copy(ingredient);
       $scope.Outgred = angular.copy(outgredient);
       for(var prop in ingredient) {
-        ingredient[prop] = '';
+        if(ingredient[prop] != '') {
+          ingredientList.push(ingredient[prop]);
+          ingredient[prop] = '';
+        }
       }
       for(var prop in outgredient) {
-        outgredient[prop] = '';
+        if(outgredient[prop] != '') {
+          outgredientList.push(outgredient[prop]);
+          outgredient[prop] = '';
+        }
       }
+      $scope.foundMessage ='Including ' + printArray(ingredientList) + '. Excluding ' + printArray(outgredientList) + '. ';
     }
     $scope.roundPages = function(num) {
       return (Math.floor(num/10) + 1);
