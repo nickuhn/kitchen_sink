@@ -26,6 +26,7 @@ module.exports = function(app) {
     $scope.resetForm = function(ingredient,outgredient) {
       var ingredientList = [];
       var outgredientList = [];
+      $scope.foundMessage = '';
       var form = document.getElementById('searchForm');
       form.reset();
       function printArray(array) {
@@ -56,7 +57,12 @@ module.exports = function(app) {
           outgredient[prop] = '';
         }
       }
-      $scope.foundMessage ='Including ' + printArray(ingredientList) + '. Excluding ' + printArray(outgredientList) + '. ';
+      if(ingredientList.length > 0) {
+        $scope.foundMessage = 'Including ' + printArray(ingredientList) + '. ';
+      }
+      if(outgredientList.length > 0) {
+        $scope.foundMessage = $scope.foundMessage + 'Excluding ' + printArray(outgredientList) + '. ';
+      }
     }
     $scope.roundPages = function(num) {
       return (Math.floor(num/10) + 1);

@@ -54,8 +54,9 @@
            data-ng-if="outgredient.item3.length>2" />
   </section>
   <section>
-    <label id="allergySon"><strong>ALL</strong>ergie(s):</label>
+    <label id="allergySon"><strong>ALL</strong>ergy:</label>
     <select id="allergiesYo" data-ng-model="allergyInfo">
+      <option value="">No Allergy</option>
       <option value="&allowedAllergy[]=396^Dairy-Free">Dairy-Free</option>
       <option value="&allowedAllergy[]=397^Egg-Free">Egg-Free</option>
       <option value="&allowedAllergy[]=393^Gluten-Free">Gluten-Free</option>
@@ -69,5 +70,5 @@
     </select>
 
   </section>
-  <button id="searchFormSubmit" type="submit" data-ng-disabled="!ingredient.item0 && !outgredient.item0">Find Fine Foods</button>
+  <button id="searchFormSubmit" type="submit">Find Fine Foods</button>
 </form>
