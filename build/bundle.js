@@ -51,21 +51,13 @@
 
 	var recipeApp = angular.module('recipeApp', ['ngAnimate']);
 
-<<<<<<< HEAD
-	__webpack_require__(2)(recipeApp);
-	__webpack_require__(3)(recipeApp);
-=======
->>>>>>> master
 	__webpack_require__(4)(recipeApp);
 	__webpack_require__(5)(recipeApp);
 	__webpack_require__(6)(recipeApp);
 	__webpack_require__(7)(recipeApp);
 	__webpack_require__(8)(recipeApp);
-<<<<<<< HEAD
-=======
 	__webpack_require__(9)(recipeApp);
 	__webpack_require__(10)(recipeApp);
->>>>>>> master
 
 
 /***/ },
@@ -28689,114 +28681,6 @@
 /* 3 */
 /***/ function(module, exports) {
 
-<<<<<<< HEAD
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('starRating', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/rating_template.html',
-	      scope: {
-	        ratingValue: '=',
-	      },
-	      link: function($scope) {
-	        $scope.stars = [];
-	        if($scope.ratingValue) {
-	          for (var i = 0; i < 5; i++) {
-	            $scope.stars.push({filled: i < $scope.ratingValue});
-	          }
-	        }
-	      }
-	    }
-	  });
-	}
-
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('searchForm', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/search_form.html',
-	    }
-	  });
-	};
-
-
-/***/ },
-/* 5 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('resultSort', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/result_sort.html',
-	    }
-	  });
-	};
-
-
-/***/ },
-/* 6 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('recipeList', function() {
-	    return {
-	      restrict: 'CA',
-	      replace: true,
-	      templateUrl: './../../../html/recipe_list.html',
-	    }
-	  });
-	};
-
-
-/***/ },
-/* 7 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.controller('recipeController', ['$scope', '$http', function($scope, $http) {
-	    $scope.recipes = [];
-	    $scope.errors = [];
-	    $scope.newSearchResult = '';
-	    $scope.logo = '';
-	    $scope.text = '';
-	    $scope.url = '';
-	    $scope.Ingred;
-	    $scope.Outgred;
-	    $scope.active = {
-	      nameIsActive: true,
-	      ratingIsActive: false,
-	      cookingTimeIsActive: false
-	    };
-	    $scope.currentPage = {
-	      page: 0
-	    };
-	    $scope.allergyInformation = {
-	      allergy: ''
-	    }
-
-	    $scope.roundPages = function(num) {
-	      return (Math.floor(num/10) + 1);
-	    };
-=======
 	/**
 	 * @license AngularJS v1.4.4
 	 * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -28816,7 +28700,6 @@
 	var isDefined   = angular.isDefined;
 	var isFunction  = angular.isFunction;
 	var isElement   = angular.isElement;
->>>>>>> master
 
 	var ELEMENT_NODE = 1;
 	var COMMENT_NODE = 8;
@@ -28859,64 +28742,6 @@
 	  ANIMATIONEND_EVENT = 'animationend';
 	}
 
-<<<<<<< HEAD
-	    $scope.getRecipes = function(ingredients, outgredients,allergyInfo) {
-	      console.log("allergy:", allergyInfo);
-	      var ingredientString = '';
-	      var outgredientString = '';
-	      var allergy = '';
-	      var url = '';
-	      for (var prop in ingredients) {
-	        if(ingredients[prop] !== '') {
-	          var temp = ingredients[prop].toLowerCase().replace(' ', '%20');
-	          ingredientString = ingredientString + '&allowedIngredient[]=' + temp;
-	        }
-	      }
-	      var pageChange = function() {
-	        if (!$scope.currentPage.page) {
-	          return '';
-	        }
-	        var pageStr = '&maxResult=10&start=' + ($scope.currentPage.page * 10);
-	        return pageStr;
-	      };
-	      var allergyAdd = function() {
-	        $scope.allergyInformation.allergy = allergyInfo;
-	        if (!$scope.allergyInformation.allergy) {
-	          return '';
-	        }
-	        return allergyInfo;
-	      }
-
-	      for (var prop in outgredients) {
-	        if(outgredients[prop] !== '') {
-	          var temp = outgredients[prop].toLowerCase().replace(' ', '%20');
-	        outgredientString = outgredientString + '&excludedIngredient[]=' + temp;
-	        }
-	      }
-	      outgredientString += '&requirePictures=true';
-	      url = 'https://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString + outgredientString + pageChange() + allergyAdd();
-	      console.log(url);
-	      $http.get(url)
-	        .then(function(res) {
-	          if (res.data.matches.length > 0) {
-	            $scope.recipes = res.data.matches;
-	          } else {
-	            $scope.recipes = [{recipeName: 'Sorry, We couldn\'t find any recipes to match that combination, but have a cookie!', smallImageUrls: ['../cookie.jpg']}];
-	          }
-
-	          $scope.logo = res.data.attribution.logo;
-	          $scope.text = res.data.attribution.text;
-	          $scope.url  = res.data.attribution.url;
-	          $scope.results = res.data.totalMatchCount;
-	        },
-	        function(res) {
-	          console.log('error', res);
-	          $scope.errors.push(res);
-	        });
-	        //console.log(doe);
-	    };
-	  }]);
-=======
 	var DURATION_KEY = 'Duration';
 	var PROPERTY_KEY = 'Property';
 	var DELAY_KEY = 'Delay';
@@ -28932,7 +28757,6 @@
 
 	var isPromiseLike = function(p) {
 	  return p && p.then ? true : false;
->>>>>>> master
 	};
 
 	function assertArg(arg, name, reason) {
@@ -28942,11 +28766,6 @@
 	  return arg;
 	}
 
-<<<<<<< HEAD
-/***/ },
-/* 8 */
-/***/ function(module, exports) {
-=======
 	function mergeClasses(a,b) {
 	  if (!a && !b) return '';
 	  if (!a) return b;
@@ -28955,7 +28774,6 @@
 	  if (isArray(b)) b = b.join(' ');
 	  return a + ' ' + b;
 	}
->>>>>>> master
 
 	function packageStyles(options) {
 	  var styles = {};
@@ -28997,8 +28815,6 @@
 	        return [];
 	        break;
 
-<<<<<<< HEAD
-=======
 	      case 1:
 	        // there is no point of stripping anything if the element
 	        // is the only element within the jqLite wrapper.
@@ -32775,6 +32591,9 @@
 	    $scope.currentPage = {
 	      page: 0
 	    };
+	    $scope.allergyInformation = {
+	      allergy: ''
+	    }
 
 	    $scope.roundPages = function(num) {
 	      return (Math.floor(num/10) + 1);
@@ -32811,9 +32630,11 @@
 	      $scope.currentPage.page = $scope.currentPage.page + 1;
 	    };
 
-	    $scope.getRecipes = function(ingredients, outgredients) {
+	    $scope.getRecipes = function(ingredients, outgredients,allergyInfo) {
+	      console.log("allergy:", allergyInfo);
 	      var ingredientString = '';
 	      var outgredientString = '';
+	      var allergy = '';
 	      var url = '';
 	      for (var prop in ingredients) {
 	        if(ingredients[prop] !== '') {
@@ -32828,6 +32649,14 @@
 	        var pageStr = '&maxResult=10&start=' + ($scope.currentPage.page * 10);
 	        return pageStr;
 	      };
+	      var allergyAdd = function() {
+	        $scope.allergyInformation.allergy = allergyInfo;
+	        if (!$scope.allergyInformation.allergy) {
+	          return '';
+	        }
+	        return allergyInfo;
+	      }
+
 	      for (var prop in outgredients) {
 	        if(outgredients[prop] !== '') {
 	          var temp = outgredients[prop].toLowerCase().replace(' ', '%20');
@@ -32835,7 +32664,8 @@
 	        }
 	      }
 	      outgredientString += '&requirePictures=true';
-	      url = 'https://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString + outgredientString + pageChange();
+	      url = 'https://api.yummly.com/v1/api/recipes?_app_id=ca33a09c&_app_key=458d12f8aa1a7682b4f947c7375a93dd&q=' + ingredientString + outgredientString + pageChange() + allergyAdd();
+	      console.log(url);
 	      $http.get(url)
 	        .then(function(res) {
 	          if (res.data.matches.length > 0) {
@@ -32843,6 +32673,7 @@
 	          } else {
 	            $scope.recipes = [{recipeName: 'Sorry, We couldn\'t find any recipes to match that combination, but have a cookie!', smallImageUrls: ['../cookie.jpg']}];
 	          }
+
 	          $scope.logo = res.data.attribution.logo;
 	          $scope.text = res.data.attribution.text;
 	          $scope.url  = res.data.attribution.url;
@@ -32852,6 +32683,7 @@
 	          console.log('error', res);
 	          $scope.errors.push(res);
 	        });
+	        //console.log(doe);
 	    };
 	  }]);
 	};
@@ -32888,6 +32720,5 @@
 	};
 
 
->>>>>>> master
 /***/ }
 /******/ ]);
