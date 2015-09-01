@@ -1,6 +1,6 @@
 <form id="searchForm"
       name="ingredientForm"
-      data-ng-submit="getRecipes(ingredient,outgredient,allergyInfo); resetForm(ingredient, outgredient);">
+      data-ng-submit=" currentPage.page = 0; getRecipes(ingredient,outgredient,allergyInfo); resetForm(ingredient, outgredient);">
   <section>
     <label id="ingredients" for="ingredientBody"><strong>IN</strong>gredient(s):</label>
     <input type="text"
